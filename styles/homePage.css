@@ -1,0 +1,94 @@
+#mainHomePage{
+    position: relative;
+    margin: 10rem 15rem 10rem 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+h2{
+    color: #7d7e7e;
+    text-transform: uppercase;
+    font-size: 2rem;
+    position: absolute;
+    top: -5%;
+    right: 35%;
+    background-color: #ffffff;
+    padding: 0.5rem;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.input-box{
+    margin-bottom: 1rem;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-box label{
+    font-weight: 500;
+}
+
+.input-box input{
+    padding-left: 2%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    outline: none;
+}
+
+.input-box select{
+    padding-left: 2%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    outline: none;
+}
+
+.buttons-container{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0 1rem 0;
+}
+
+.buttons-container button{
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: #ffff;
+    transition: 0.3s ease all;
+}
+
+.buttons-container button:hover{
+    opacity: 0.7;
+}
+
+.buttons-container button:active{
+    transform: scale(50%);
+}
+
+
+#adicionar{
+    background-color: #658d7f;
+}
+
+#limpar{
+    background-color: #C9996B;
+}
