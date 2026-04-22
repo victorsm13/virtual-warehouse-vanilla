@@ -33,48 +33,49 @@
         <div class="input-container">
             <div class="input-box">
                 <label for="nomeProduto">Nome do produto:</label>
-                <input type="text" name="nomeProduto" id="nomeProduto" placeholder="Nome do produto..." required>
+                <input class="jsNomeProduto" type="text" name="nomeProduto" id="nomeProduto" placeholder="Nome do produto..." required>
             </div>
              <div class="input-box">
                 <label for="categoria">Categoria do produto:</label>
-                <select name="cateforia" id="categoria">
+                <select class="jsCategoria" name="cateforia" id="categoria">
                     <option value="escritorio">Materias de escritório</option>
-                    <option value="ti">Equipamentos de TI</option>
-                    <option value="eletricos">Materias elétricos</option>
-                    <option value="limpeza&manutencao">Limpeza e manutenção</option>
+                    <option value="TI">Equipamentos de TI</option>
+                    <option value="eletrico">Materias elétricos</option>
+                    <option value="Limpeza">Limpeza e manutenção</option>
                     <option value="producao">Materias de produção</option>
                     <option value="geral">Geral</option>
                 </select>
             </div>
              <div class="input-box">
                 <label for="quantidadeInicial">Quantidade inical:</label>
-                <input type="number" name="quantidadeInicial" id="quantidadeInicial" placeholder="Quantidade inicial...">
+                <input class="jsQuantidadeInicial" type="number" name="quantidadeInicial" id="quantidadeInicial" placeholder="Quantidade inicial...">
             </div>
              <div class="input-box">
                 <label for="quantidadeMinima">Quantidade mínima:</label>
-                <input type="number" name="quantidadeMinima" id="quantidadeMinima" placeholder="Quantidade minima...">
+                <input class="jsQuantidadeMinima" type="number" name="quantidadeMinima" id="quantidadeMinima" placeholder="Quantidade minima...">
             </div>
              <div class="input-box">
                 <label for="localizacao">Localização:</label>
-                <select name="localizacao" id="localizacao">
+                <select class="jsLocalizacao" name="localizacao" id="localizacao">
                     <option value="prateleiraUm">Prateleira 1</option>
                     <option value="prateleiraDois">Prateleria 2</option>
                     <option value="prateleiraTres">Prateleira 3</option>
                     <option value="prateleiraQuatro">Prateleira 4</option>
                     <option value="prateleiraCinco">Prateleira 5</option>
+                    <option value="prateleiraSeis">Prateleira 6</option>
                 </select>
             </div>
              <div class="input-box">
                 <label for="fornecedor">Fornecedor:</label>
-                <input type="text" name="fornecedor" id="fornecedor" placeholder="Nome do fornecedor...">
+                <input class="jsFornecedor" type="text" name="fornecedor" id="fornecedor" placeholder="Nome do fornecedor...">
             </div>
              <div class="input-box">
                 <label for="dataEntrada">Data de entrada:</label>
-                <input type="date" name="dataEntrada" id="dataEntrada" placeholder="Nome do produto...">
+                <input class="jsDataEntrada" type="date" name="dataEntrada" id="dataEntrada" placeholder="Nome do produto...">
             </div>
             <div class="buttons-container">
-                <button id="adicionar">Adicionar</button>
-                <button id="limpar">Limpar</b>
+                <button class="jsAdicionarBtn" id="adicionar">Adicionar</button>
+                <button class="jsLimparBtn" id="limpar">Limpar</b>
             </div>
         </div>
     </main>
