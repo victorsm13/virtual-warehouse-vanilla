@@ -50,6 +50,11 @@ h2{
     outline: none;
 }
 
+.input-box input:focus{
+    outline: 1px solid rgb(255, 115, 0);
+}
+
+
 .input-box select{
     padding-left: 2%;
     height: 35px;

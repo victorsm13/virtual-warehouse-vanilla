@@ -9,6 +9,7 @@
 }
 
 header{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -48,4 +49,79 @@ h1{
 
 .header-links a:hover::before{
     width: 50%;
+}
+
+#check{
+    display: none;
+}
+
+.icons{
+    cursor: pointer;
+    position: absolute;
+    right: 3%;
+    display: none;
+}
+
+.icons img{
+    width: 5rem;
+}
+
+@media (max-width: 1250px){
+    .header-links{
+        display: flex;
+        gap: 8rem;
+    }
+}
+
+@media (max-width: 1150px){
+    .header-links{
+        display: flex;
+        gap: 6rem;
+    }
+}
+
+@media (max-width: 1050px){
+    .header-links{
+        display: flex;
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 950px){
+
+    .icons{
+        display: flex;
+    }
+
+    #xIcon{
+        display: none;
+    }
+
+    #check:checked ~ .icons #xIcon{
+        display: flex;
+    }
+
+    #check:checked ~ .icons #menuIcon{
+        display: none;
+    }
+
+    .header-links{
+        position: absolute;
+        align-items: center;
+        flex-direction: column;
+        background-color: #5C766D;
+        width: 100%;
+        left: 0;
+        top: 100%;
+        height: 0;
+        z-index: 9999;
+        transition: 0.3s ease all;
+        overflow: hidden;
+    }
+
+    #check:checked ~ .header-links{
+        padding: 3rem 0 3rem 0;
+        height: 50vh;
+        overflow-y: scroll;
+    }
 }
