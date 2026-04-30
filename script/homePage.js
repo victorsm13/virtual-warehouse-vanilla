@@ -1,3 +1,5 @@
+import { adicionarItem } from "../data/data.js";
+
 const jsAdicionarBtn = document.querySelector('.jsAdicionarBtn');
 const jsLimparBtn = document.querySelector('.jsLimparBtn');
 
@@ -43,7 +45,7 @@ const closeMessageBox = ()=>{
     jsMessageBox.classList.add('hiden');
 }
 
-const confirmarInclusao = ()=>{
+const caixaDeDialogo = async ()=>{
 
     const verificacao = verificandoCampos();
 
@@ -54,6 +56,64 @@ const confirmarInclusao = ()=>{
 
     caixaDeErro('confirmacao');
 
+    const confirmacao = await confirmarInclusao();
+
+    if(confirmacao){
+
+    const jsNomeProduto = document.querySelector('.jsNomeProduto');
+    const jsCategoria = document.querySelector('.jsCategoria');
+    const jsQuantidadeInicial = document.querySelector('.jsQuantidadeInicial');
+    const jsQuantidadeMinima = document.querySelector('.jsQuantidadeMinima');
+    const jsLocalizacao = document.querySelector('.jsLocalizacao');
+    const jsFornecedor = document.querySelector('.jsFornecedor');
+    const jsDataEntrada = document.querySelector('.jsDataEntrada');
+
+    adicionarItem(jsNomeProduto.value, jsCategoria.value, jsQuantidadeInicial.value, jsQuantidadeInicial.value, jsLocalizacao.value, jsFornecedor.value, jsDataEntrada.value);
+
+
+    jsNomeProduto.value = '';
+    jsCategoria.value = '';
+    jsQuantidadeInicial.value = '';
+    jsQuantidadeMinima.value = '';
+    jsLocalizacao.value = '';
+    jsFornecedor.value = '';
+    jsDataEntrada.value = '';
+
+
+    } else{
+        console.log('Deu certo 2');
+    }
+
+}
+
+function confirmarInclusao(){
+    return new Promise((resolve)=>{
+
+    const jsMessageBox = document.querySelector('.jsMessageBox');
+    const jsConfirmarBtt = document.querySelector('.jsConfirmarBtt');
+    const jsNegarBtt = document.querySelector('.jsNegarBtt');
+
+    const confirmar = ()=>{
+        jsMessageBox.classList.add('hiden');
+        resolve(true);
+        cleanUp();
+    };
+
+    const cancelar = ()=>{
+        jsMessageBox.classList.add('hiden');
+        resolve(false);
+        cleanUp();
+    }
+
+    function cleanUp(){
+        jsConfirmarBtt.removeEventListener('click', confirmar)
+        jsNegarBtt.removeEventListener('click', cancelar)
+    }
+
+    jsConfirmarBtt.addEventListener('click', confirmar );
+
+    jsNegarBtt.addEventListener('click', cancelar);
+    })
 }
 
 const caixaDeErro = (mensagem)=>{
@@ -69,6 +129,7 @@ const caixaDeErro = (mensagem)=>{
 
         jsMessageButtons.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
+        jsCloseError.classList.remove('hiden');
         jsMessage.innerText = message;
     } else if (mensagem === 'confirmacao'){
         message = 'Tem certeza que deseja adicionar o produto?'
@@ -83,7 +144,7 @@ const caixaDeErro = (mensagem)=>{
 const jsCloseError = document.querySelector('.jsCloseError');
 
 
-jsAdicionarBtn.addEventListener('click', confirmarInclusao);
+jsAdicionarBtn.addEventListener('click', caixaDeDialogo);
 
 jsLimparBtn.addEventListener('click', limparCampos);
 

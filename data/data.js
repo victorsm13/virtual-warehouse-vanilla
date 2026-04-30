@@ -1,4 +1,4 @@
-export const produtos = [
+export const produtos = JSON.parse(localStorage.getItem("produtos")) || [
   // 📎 Materiais de escritório
   {
     id: "1",
@@ -369,3 +369,27 @@ export const produtos = [
     dataEntrada: "2026-04-20"
   }
 ];
+
+export function adicionarItem(nome, categoria, quantidade, estoqueM, localizacao, fornecedor, data){
+
+  const id = produtos.length + 1;
+
+  produtos.push({
+    id: String(id),
+    nome: nome,
+    categoria: categoria,
+    quantidade: quantidade,
+    estoqueMinimo: estoqueM,
+    localizacao: localizacao,
+    fornecedor: fornecedor,
+    dataEntrada: data
+  });
+
+  console.log(produtos);
+
+  saveToStorage();
+}
+
+function saveToStorage(){
+  localStorage.setItem("produtos", JSON.stringify(produtos));
+}
