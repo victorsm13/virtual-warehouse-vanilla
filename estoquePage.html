@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almoxarifado</title>
+    <link rel="stylesheet" href="./styles/shared.css">
+    <link rel="stylesheet" href="./styles/estoquePage.css">
+</head>
+<body>
+
+    <div class="jsMessageBox messageBox hiden">
+        <div class="messageContainer">
+            <img class="jsCloseError" id="closeError" src="./assets/x.svg" alt="">
+            <span class="jsMessage message">Tem certeza que deseja adicionar o produto?</span>
+            <div class="jsMessageButtons messageButtons">
+                <button class="jsConfirmarBtt" id="simBtt">sim</button>
+                <button class="jsNegarBtt" id="naoBtt">não</button>
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
+        <h1>Almoxarifado</h1>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <img src="./assets/menu-closer.svg" alt="menu-icon" id="menuIcon">
+            <img src="./assets/x.svg" alt="close-icon" id="xIcon">
+        </label>
+
+        <div class="header-links">
+            <a href="./estoquePage.html">estoque</a>
+            <a href="#">histórico</a>
+            <a href="">Gráficos</a>
+            <a href="#">sobre</a>
+        </div>
+    </header>
+
+    <main id="mainEstoquePage">
+
+        <div class="main-header">
+         <div class="search-container">
+            <div class="search-box">
+                <input class="search-input" type="text" placeholder="Pesquise aqui...">
+                <img class="search-icon" src="./assets/search-icon.svg" alt="search-icon">
+            </div>
+            <div class="filter-box">
+                <span>Filtrar</span>
+                <img class="filter-icon" src="./assets/filter-icon.svg" alt="filter-icon">
+            </div> 
+        </div>
+        </div>
+
+        <div class="jsProdutosContainer produtos-container-grid">
+             
+        </div>
+    </main>
+    
+    <script type="module" src="./script/estoquePage.js"></script>
+</body>
+</html>
