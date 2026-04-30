@@ -21,11 +21,6 @@ const limparCampos = ()=>{
 
 const verificandoCampos = ()=>{
 
-    const message = 'Todos os campos precisam ser preenchidos';
-
-    const jsMessage = document.querySelector('.jsMessage');
-    const jsMessageBox = document.querySelector('.jsMessageBox');
-
     const jsNomeProduto = document.querySelector('.jsNomeProduto');
     const jsCategoria = document.querySelector('.jsCategoria');
     const jsQuantidadeInicial = document.querySelector('.jsQuantidadeInicial');
@@ -36,10 +31,11 @@ const verificandoCampos = ()=>{
 
     if(jsNomeProduto.value.trim() === '' || jsCategoria.value.trim() === '' || jsQuantidadeInicial.value.trim() === '' || jsQuantidadeMinima.value.trim() === '' || jsLocalizacao.value.trim() === '' || jsFornecedor.value === '' || jsDataEntrada.value.trim() === ''){
 
-        jsMessageBox.classList.remove('hiden');
-        jsMessage.innerText = message;
-        return;
+        caixaDeErro('erro');
+        return true;
     }
+
+    return false;
 }
 
 const closeMessageBox = ()=>{
@@ -47,10 +43,47 @@ const closeMessageBox = ()=>{
     jsMessageBox.classList.add('hiden');
 }
 
+const confirmarInclusao = ()=>{
+
+    const verificacao = verificandoCampos();
+
+    if(verificacao){
+        verificandoCampos();
+        return;
+    }
+
+    caixaDeErro('confirmacao');
+
+}
+
+const caixaDeErro = (mensagem)=>{
+
+    const jsMessage = document.querySelector('.jsMessage');
+    const jsMessageBox = document.querySelector('.jsMessageBox');
+    const jsCloseError = document.querySelector('.jsCloseError');
+    const jsMessageButtons = document.querySelector('.jsMessageButtons');
+    let message;
+
+    if(mensagem === 'erro'){
+        message = 'Todos os campos precisam ser preenchidos';
+
+        jsMessageButtons.classList.add('hiden');
+        jsMessageBox.classList.remove('hiden');
+        jsMessage.innerText = message;
+    } else if (mensagem === 'confirmacao'){
+        message = 'Tem certeza que deseja adicionar o produto?'
+
+        jsCloseError.classList.add('hiden');
+        jsMessageBox.classList.remove('hiden');
+        jsMessageButtons.classList.remove('hiden');
+        jsMessage.innerText = message;
+    }
+}
+
 const jsCloseError = document.querySelector('.jsCloseError');
 
 
-jsAdicionarBtn.addEventListener('click', verificandoCampos);
+jsAdicionarBtn.addEventListener('click', confirmarInclusao);
 
 jsLimparBtn.addEventListener('click', limparCampos);
 
