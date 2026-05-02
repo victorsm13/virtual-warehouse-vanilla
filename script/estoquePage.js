@@ -18,7 +18,6 @@ produtos.forEach((produto)=>{
             <td class="nome-produto">${produto.nome}</td>
             <td class="quantidade-produto">${produto.quantidade}</td>
             <td class="prateleira-produto">${produto.localizacao}</td>
-            <button></button>
   </tr>
    `;
 });
@@ -42,6 +41,6 @@ jsProdutoBox.forEach((produtoBox)=>{
       }
    });
 
-   window.location.href=`produtoPage.html?produtoNome="${matchingProduct.nome}"&produtoId="${matchingProduct.id}"`;
+   window.location.href=`produtoPage.html?produtoNome=${matchingProduct.nome}&produtoId=${matchingProduct.id}`;
  })  
 })

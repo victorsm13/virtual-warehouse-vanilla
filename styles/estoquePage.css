@@ -71,26 +71,26 @@ img{
 }
 
 .produtos-box:hover{
-    background-color: rgb(136, 136, 136);
+    background-color: rgb(218, 66, 6);
     color: #fff;
 }
 
 .cell-grid{
     cursor: pointer;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 0.5fr 1fr;
     justify-items: center;
     align-items: center;
 }
 
 .produtos-header{
-    background-color: #E03F4F;
+    background-color: #000000;
     color: #fff;
 }
 
 .produtos-header th, .cell-grid td{
     font-weight: 700;
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
