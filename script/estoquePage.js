@@ -1,21 +1,25 @@
 import { produtos } from "../data/data.js";
 
-const jsProdutosContainer = document.querySelector('.jsProdutosContainer');
+const jsTableContainer = document.querySelector('.jsTableContainer');
 
-let produtosHTML = '';
+let produtosHTML = `
+<tr class="produtos-header cell-grid">
+                    <th class="header-name">NOME</th>
+                    <th class="header-quantity">QUANTIDADE</th>
+                    <th class="header-localizacao">LOCALIZAÇÃO</th>
+</tr>
+`;;
+
 
 produtos.forEach((produto)=>{
 
    produtosHTML+= `
-   <div class="produtos-box">
-            <img class="close-icon icon" class="" src="./assets/close-icon.svg" alt="close-icon">
-            <img class="edit-icon icon" src="./assets/edit-icon.svg" alt="edit-icon">
-                <span>Nome: <span class="produto nome">${produto.nome}</span></span>
-                <span>Quantidade: <span class="produto quantidade">${produto.quantidade}</span></span>
-                <span>Localização: <span class="produto localizacao">${produto.localizacao}</span></span>
-                <span>Data Entrada: <span class="produto data">${produto.dataEntrada}</span></span>
-    </div>
+    <tr class="produtos-box cell-grid">
+         <td class="nome-produto">${produto.nome}</td>
+         <td class="quantidade-produto">${produto.quantidade}</td>
+         <td class="prateleira-produto">${produto.localizacao}</td>
+   </tr>
    `;
 })
 
-jsProdutosContainer.innerHTML = produtosHTML;
+jsTableContainer.innerHTML = produtosHTML;

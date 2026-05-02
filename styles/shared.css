@@ -84,7 +84,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 1%;
-    background-color: #5C766D;
+    background-color: rgb(49, 71, 64);
     color: #fff;
 }
 
@@ -188,7 +188,7 @@ h1{
         position: absolute;
         align-items: center;
         flex-direction: column;
-        background-color: #5C766D;
+        background-color: rgba(49, 71, 64);
         width: 100%;
         left: 0;
         top: 100%;
