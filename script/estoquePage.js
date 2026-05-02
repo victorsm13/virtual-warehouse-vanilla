@@ -14,12 +14,34 @@ let produtosHTML = `
 produtos.forEach((produto)=>{
 
    produtosHTML+= `
-    <tr class="produtos-box cell-grid">
-         <td class="nome-produto">${produto.nome}</td>
-         <td class="quantidade-produto">${produto.quantidade}</td>
-         <td class="prateleira-produto">${produto.localizacao}</td>
-   </tr>
+   <tr class="produtos-box jsProdutoBox cell-grid" data-produto-id="${produto.id}">
+            <td class="nome-produto">${produto.nome}</td>
+            <td class="quantidade-produto">${produto.quantidade}</td>
+            <td class="prateleira-produto">${produto.localizacao}</td>
+            <button></button>
+  </tr>
    `;
-})
+});
 
 jsTableContainer.innerHTML = produtosHTML;
+
+
+const jsProdutoBox = document.querySelectorAll('.jsProdutoBox');
+
+jsProdutoBox.forEach((produtoBox)=>{
+ produtoBox.addEventListener('click', ()=>{
+
+   let matchingProduct;
+
+   const produtoId = produtoBox.dataset.produtoId;
+
+   produtos.forEach((produto)=>{
+
+      if(produto.id === produtoId){
+         matchingProduct = produto;
+      }
+   });
+
+   window.location.href=`produtoPage.html?produtoNome="${matchingProduct.nome}"&produtoId="${matchingProduct.id}"`;
+ })  
+})

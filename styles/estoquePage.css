@@ -66,6 +66,15 @@ img{
     margin: 0 0 5rem 0;
 }
 
+.produtos-box{
+    transition: 0.3s ease all;
+}
+
+.produtos-box:hover{
+    background-color: rgb(136, 136, 136);
+    color: #fff;
+}
+
 .cell-grid{
     cursor: pointer;
     display: grid;
