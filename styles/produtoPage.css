@@ -82,3 +82,53 @@ button:active{
 #excluir{
     background-color: rgb(255, 0, 0);
 }
+
+label{
+    font-weight: 500;
+}
+
+.product-informations-box div input{
+    min-width: 100px;
+    max-width: 100px;
+    padding-left: 2%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    outline: none;
+}
+
+
+.product-informations-box div input:focus{
+    outline: 1px solid rgb(255, 115, 0);
+}
+
+
+.product-informations-box div select{
+    min-width: 150px;
+    max-width: 150px;
+    padding-left: 1%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    outline: none;
+}
+
+.hiden{
+    display: none;
+}
+
+.editBtn{
+    width: 150px;
+}
+
+.jsConfirmarEdicao{
+    background-color: green;
+} 
+
+.jsCancelarEdicao{
+    background-color: rgb(255, 0, 0);
+}
+
+.icon{
+    cursor: pointer;
+}
