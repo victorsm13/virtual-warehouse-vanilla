@@ -33,5 +33,19 @@ export const caixaDeErro = (tipo)=>{
         jsMessageBox.classList.remove('hiden');
         jsMessageButtons.classList.remove('hiden');
         jsMessage.innerText = message;
+    } else if(tipo === 'confirmarEnrada'){
+        message = 'Tem certeza que deseja dar entrada no produto?'
+
+        jsCloseError.classList.add('hiden');
+        jsMessageBox.classList.remove('hiden');
+        jsMessageButtons.classList.remove('hiden');
+        jsMessage.innerText = message;
+    } else if(tipo === 'confirmarSaida'){
+        message = 'Tem certeza que deseja dar saída no produto?'
+
+        jsCloseError.classList.add('hiden');
+        jsMessageBox.classList.remove('hiden');
+        jsMessageButtons.classList.remove('hiden');
+        jsMessage.innerText = message;
     }
 }

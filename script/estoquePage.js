@@ -1,5 +1,6 @@
 import { produtos } from "../data/data.js";
 import { closeMessageBox, caixaDeErro } from "./utils/messagesBox.js";
+import { confirmarMovimentação } from "./utils/confirmarPromise.js";
 
 const jsTableContainer = document.querySelector('.jsProdutosContainer');
 
@@ -28,20 +29,44 @@ jsTableContainer.innerHTML = produtosHTML;
 
 
 
-function entradaProduto (id){
+const  entradaProduto = async (id) => {
    const valor = document.querySelector(`.js-movimentacao-${id}`);
 
-   verificarCampo(id);
-   
-   valor.value = '';
+   const resultado = verificarCampo(id);
+
+   if(resultado){
+      caixaDeErro('confirmarEnrada');
+   }
+
+   const confirmacao = await confirmarMovimentação();
+
+   if(confirmacao){
+      console.log('EntradaeSaída');
+      valor.value = '';
+   } else{
+      console.log('Não confirmado!');
+   }
+
 }
 
-function saidaProduto (id){
+const  saidaProduto = async (id) => {
    const valor = document.querySelector(`.js-movimentacao-${id}`);
 
-   verificarCampo(id);
+   const resultado = verificarCampo(id);
 
-   valor.value = '';
+   if(resultado){
+      caixaDeErro('confirmarEnrada');
+   }
+   
+   const confirmacao = await confirmarMovimentação();
+
+   if(confirmacao){
+      console.log('EntradaeSaída');
+      valor.value = '';
+   } else{
+      console.log('Não confirmado!');
+   }
+
 }
 
 function verificarCampo(id){
@@ -49,9 +74,14 @@ function verificarCampo(id){
 
    if(valor.value.trim() === ''){
       caixaDeErro('quantidadeInválida');
-      return;
+      return false;
    }
+
+   return true;
+
 }
+
+
 
 const jsCloseError = document.querySelector('.jsCloseError');
 

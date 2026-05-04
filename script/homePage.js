@@ -1,5 +1,6 @@
 import { adicionarItem } from "../data/data.js";
 import { closeMessageBox, caixaDeErro } from "./utils/messagesBox.js";
+import { confirmarMovimentação } from "./utils/confirmarPromise.js";
 
 const jsAdicionarBtn = document.querySelector('.jsAdicionarBtn');
 const jsLimparBtn = document.querySelector('.jsLimparBtn');
@@ -22,7 +23,7 @@ const limparCampos = ()=>{
     jsDataEntrada.value = '';
 }
 
-const verificandoCampos = ()=>{
+const verificarCampos = ()=>{
 
     const jsNomeProduto = document.querySelector('.jsNomeProduto');
     const jsCategoria = document.querySelector('.jsCategoria');
@@ -44,16 +45,16 @@ const verificandoCampos = ()=>{
 
 const caixaDeDialogo = async ()=>{
 
-    const verificacao = verificandoCampos();
+    const verificacao = verificarCampos();
 
     if(verificacao){
-        verificandoCampos();
+        verificarCampos();
         return;
     }
 
     caixaDeErro('confirmacaoCadastro');
 
-    const confirmacao = await confirmarInclusao();
+    const confirmacao = await confirmarMovimentação();
 
     if(confirmacao){
 
@@ -82,38 +83,6 @@ const caixaDeDialogo = async ()=>{
     }
 
 }
-
-function confirmarInclusao(){
-    return new Promise((resolve)=>{
-
-    const jsMessageBox = document.querySelector('.jsMessageBox');
-    const jsConfirmarBtt = document.querySelector('.jsConfirmarBtt');
-    const jsNegarBtt = document.querySelector('.jsNegarBtt');
-
-    const confirmar = ()=>{
-        jsMessageBox.classList.add('hiden');
-        resolve(true);
-        cleanUp();
-    };
-
-    const cancelar = ()=>{
-        jsMessageBox.classList.add('hiden');
-        resolve(false);
-        cleanUp();
-    }
-
-    function cleanUp(){
-        jsConfirmarBtt.removeEventListener('click', confirmar)
-        jsNegarBtt.removeEventListener('click', cancelar)
-    }
-
-    jsConfirmarBtt.addEventListener('click', confirmar );
-
-    jsNegarBtt.addEventListener('click', cancelar);
-    })
-}
-
-
 
 const jsCloseError = document.querySelector('.jsCloseError');
 
