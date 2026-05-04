@@ -1,4 +1,5 @@
 import { produtos } from "../data/data.js";
+import { closeMessageBox, caixaDeErro } from "./utils/messagesBox.js";
 
 const jsTableContainer = document.querySelector('.jsProdutosContainer');
 
@@ -30,7 +31,7 @@ jsTableContainer.innerHTML = produtosHTML;
 function entradaProduto (id){
    const valor = document.querySelector(`.js-movimentacao-${id}`);
 
-   console.log(valor.value);
+   verificarCampo(id);
    
    valor.value = '';
 }
@@ -38,11 +39,21 @@ function entradaProduto (id){
 function saidaProduto (id){
    const valor = document.querySelector(`.js-movimentacao-${id}`);
 
-   console.log(valor.value);
+   verificarCampo(id);
 
    valor.value = '';
 }
 
+function verificarCampo(id){
+   const valor = document.querySelector(`.js-movimentacao-${id}`);
+
+   if(valor.value.trim() === ''){
+      caixaDeErro('quantidadeInválida');
+      return;
+   }
+}
+
+const jsCloseError = document.querySelector('.jsCloseError');
 
 const jsEntradaBtt = document.querySelectorAll(".jsEntradaBtt");
 const jsSaidaBtt = document.querySelectorAll(".jsSaidaBtt");
@@ -54,7 +65,7 @@ jsEntradaBtt.forEach((button)=>{
 
       entradaProduto(buttonId);
    })
-})
+});
 
 jsSaidaBtt.forEach((button)=>{
 
@@ -63,4 +74,6 @@ jsSaidaBtt.forEach((button)=>{
 
       saidaProduto(buttonId);
    })
-})
+});
+
+jsCloseError.addEventListener('click', closeMessageBox);

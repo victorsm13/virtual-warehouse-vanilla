@@ -1,4 +1,5 @@
 import { adicionarItem } from "../data/data.js";
+import { closeMessageBox, caixaDeErro } from "./utils/messagesBox.js";
 
 const jsAdicionarBtn = document.querySelector('.jsAdicionarBtn');
 const jsLimparBtn = document.querySelector('.jsLimparBtn');
@@ -33,17 +34,13 @@ const verificandoCampos = ()=>{
 
     if(jsNomeProduto.value.trim() === '' || jsCategoria.value.trim() === '' || jsQuantidadeInicial.value.trim() === '' || jsQuantidadeMinima.value.trim() === '' || jsLocalizacao.value.trim() === '' || jsFornecedor.value === '' || jsDataEntrada.value.trim() === ''){
 
-        caixaDeErro('erro');
+        caixaDeErro('campoVazioCadastro');
         return true;
     }
 
     return false;
 }
 
-const closeMessageBox = ()=>{
-    const jsMessageBox = document.querySelector('.jsMessageBox');
-    jsMessageBox.classList.add('hiden');
-}
 
 const caixaDeDialogo = async ()=>{
 
@@ -54,7 +51,7 @@ const caixaDeDialogo = async ()=>{
         return;
     }
 
-    caixaDeErro('confirmacao');
+    caixaDeErro('confirmacaoCadastro');
 
     const confirmacao = await confirmarInclusao();
 
@@ -116,30 +113,7 @@ function confirmarInclusao(){
     })
 }
 
-const caixaDeErro = (mensagem)=>{
 
-    const jsMessage = document.querySelector('.jsMessage');
-    const jsMessageBox = document.querySelector('.jsMessageBox');
-    const jsCloseError = document.querySelector('.jsCloseError');
-    const jsMessageButtons = document.querySelector('.jsMessageButtons');
-    let message;
-
-    if(mensagem === 'erro'){
-        message = 'Todos os campos precisam ser preenchidos';
-
-        jsMessageButtons.classList.add('hiden');
-        jsMessageBox.classList.remove('hiden');
-        jsCloseError.classList.remove('hiden');
-        jsMessage.innerText = message;
-    } else if (mensagem === 'confirmacao'){
-        message = 'Tem certeza que deseja adicionar o produto?'
-
-        jsCloseError.classList.add('hiden');
-        jsMessageBox.classList.remove('hiden');
-        jsMessageButtons.classList.remove('hiden');
-        jsMessage.innerText = message;
-    }
-}
 
 const jsCloseError = document.querySelector('.jsCloseError');
 
