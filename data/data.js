@@ -393,3 +393,35 @@ export function adicionarItem(nome, categoria, quantidade, estoqueM, localizacao
 function saveToStorage(){
   localStorage.setItem("produtos", JSON.stringify(produtos));
 }
+
+export function entradaProdutoQuantidade(id, quantidade){
+
+  let matchingProduct;
+
+  produtos.forEach((produto)=>{
+    if(produto.id === id){
+      matchingProduct = produto
+    }
+  });
+
+  console.log(matchingProduct.quantidade)
+
+  matchingProduct.quantidade += quantidade;
+
+  saveToStorage();
+
+}
+
+export function saidaProdutoQuantidade(id, quantidade){
+   let matchingProduct;
+
+  produtos.forEach((produto)=>{
+    if(produto.id === id){
+      matchingProduct = produto
+    }
+  });
+
+  matchingProduct.quantidade -= quantidade;
+
+  saveToStorage();
+}

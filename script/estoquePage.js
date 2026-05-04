@@ -1,6 +1,10 @@
-import { produtos } from "../data/data.js";
+import { produtos, entradaProdutoQuantidade, saidaProdutoQuantidade } from "../data/data.js";
 import { closeMessageBox, caixaDeErro } from "./utils/messagesBox.js";
 import { confirmarMovimentação } from "./utils/confirmarPromise.js";
+
+randerProducts();
+
+function randerProducts(){
 
 const jsTableContainer = document.querySelector('.jsProdutosContainer');
 
@@ -27,8 +31,6 @@ produtos.forEach((produto)=>{
 jsTableContainer.innerHTML = produtosHTML;
 
 
-
-
 const  entradaProduto = async (id) => {
    const valor = document.querySelector(`.js-movimentacao-${id}`);
 
@@ -41,11 +43,10 @@ const  entradaProduto = async (id) => {
    const confirmacao = await confirmarMovimentação();
 
    if(confirmacao){
-      console.log('EntradaeSaída');
+      entradaProdutoQuantidade(id, Number(valor.value));
       valor.value = '';
-   } else{
-      console.log('Não confirmado!');
-   }
+      randerProducts();
+   } 
 
 }
 
@@ -61,11 +62,10 @@ const  saidaProduto = async (id) => {
    const confirmacao = await confirmarMovimentação();
 
    if(confirmacao){
-      console.log('EntradaeSaída');
+      saidaProdutoQuantidade(id, Number(valor.value));
       valor.value = '';
-   } else{
-      console.log('Não confirmado!');
-   }
+      randerProducts();
+   } 
 
 }
 
@@ -80,8 +80,6 @@ function verificarCampo(id){
    return true;
 
 }
-
-
 
 const jsCloseError = document.querySelector('.jsCloseError');
 
@@ -107,3 +105,4 @@ jsSaidaBtt.forEach((button)=>{
 });
 
 jsCloseError.addEventListener('click', closeMessageBox);
+};
