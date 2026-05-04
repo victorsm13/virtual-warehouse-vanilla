@@ -92,6 +92,7 @@
     font-weight: 300;
 }
 
+
 .produtos-box .movimentacao{
     height: 30px;
     padding-left: 2%;
@@ -142,4 +143,29 @@
 
 #saida-produto{
     background-color: #d46c0a;
+}
+
+.quantidade-produto{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.2rem;
+    color: #fff;
+    background-color: green;
+}
+
+.green{
+    background-color: green;
+}
+
+.red{
+    background-color: red;
+}
+
+.atencao{
+    position: absolute;
+    top: -5%;
+    padding: 0.3rem;
+    background-color: rgb(209, 13, 13);
+    color: #fff;
+    font-weight: 900;
+    border-radius: 5px;
 }
