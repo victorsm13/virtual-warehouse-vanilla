@@ -1,4 +1,5 @@
 import { produtos } from "../data/data.js";
+import { caixaDeErro, closeMessageBox } from "./utils/messagesBox.js";
 
 const url = new URL (window.location.href);
 
@@ -40,48 +41,149 @@ produtoHTML = `
                     <option value="prateleiraQuatro">Prateleira 4</option>
                     <option value="prateleiraCinco">Prateleira 5</option>
                     <option value="prateleiraSeis">Prateleira 6</option>
-                </select> <img class="js-edit-prateleira-${matchingProduct.id} icon" data-edit="prateleira" src="./assets/edit-icon-black.svg" alt=""></div>
+                </select> <img class=" icon" data-edit="prateleira" src="./assets/edit-icon-black.svg" alt=""></div>
                 <div>Fornecedor: <span class="produto fornecedor">${matchingProduct.fornecedor}</span><input class="js-edit-fornecedor hiden inputProduto" type="text"> <img class="icon" data-edit="fornecedor" src="./assets/edit-icon-black.svg" alt=""></div>
                 <div>Data de entradada: <span class="produto dataEntrada">${matchingProduct.dataEntrada}</span><input class="js-edit-dataEntrada hiden inputProduto" type="date"> <img class=" icon" data-edit="dataEntrada" src="./assets/edit-icon-black.svg" alt=""></div>
                 <div>Última moviemntação: <span class="produto"></span></div>   
         </div>
         <div class="buttonsBox">
-        <button class="jsConfirmarEdicao hiden editBtn">Confirmar Edição</button>
-        <button class="jsCancelarEdicao hiden editBtn">Cancelar Edição</button>
-            <button class="js-editar-btn button" id="editar">editar <img class="icon" src="./assets/edit-icon.svg" alt=""></button>
-            <button class="js-excluir-btn button" id="excluir">excluir <img class="icon" src="./assets/close-icon.svg" alt=""></button>
+            <button class="jsConfirmarEdicao hiden editBtn">Confirmar Edição</button>
+            <button class="jsCancelarEdicao hiden editBtn">Cancelar Edição</button>
+            <button class="js-excluir-btn button" id="excluir">excluir produto <img class="icon" src="./assets/close-icon.svg" alt=""></button>
         </div>
 `;
 
 function editarCampo(nome){
 
     const jsInputEdit = document.querySelector(`.js-edit-${nome}`);
+
     const jsSpanElement = document.querySelector(`.${nome}`);
+
+    const jsButtonsBox = document.querySelector('.buttonsBox');
+
+    const jsEditBtns = document.querySelectorAll('.editBtn');
+    const jsExcluirBtn = document.querySelector('.js-excluir-btn');
+
+    const jsCancelarEdicao = document.querySelector('.jsCancelarEdicao');
+    const jsConfirmarEdicao = document.querySelector('.jsConfirmarEdicao');
+
+    jsButtonsBox.classList.add('buttonsBoxEdit');
+    jsExcluirBtn.classList.add('hiden');
+    
+    jsEditBtns.forEach((editBtn)=>{
+        editBtn.classList.remove('hiden');
+    });
 
     if(nome === 'nome'){
         jsSpanElement.classList.add('hiden');
         jsInputEdit.classList.remove('hiden');
+
+        jsConfirmarEdicao.addEventListener('click', ()=>{
+            if(jsInputEdit.value.trim() === ''){
+                caixaDeErro('campoVazioCadastro');
+            }
+        });
         
     } else if(nome === 'categoria'){
         jsSpanElement.classList.add('hiden');
         jsInputEdit.classList.remove('hiden');
+
+        jsConfirmarEdicao.addEventListener('click', ()=>{
+            if(jsInputEdit.value.trim() === ''){
+                caixaDeErro('campoVazioCadastro');
+            }
+        });
     } else if (nome === 'quantidade'){
         jsSpanElement.classList.add('hiden');
         jsInputEdit.classList.remove('hiden');
+
+        jsConfirmarEdicao.addEventListener('click', ()=>{
+            if(jsInputEdit.value.trim() === ''){
+                caixaDeErro('campoVazioCadastro');
+            }
+        });
     } else if (nome === 'estoqueMinimo'){
          jsSpanElement.classList.add('hiden');
         jsInputEdit.classList.remove('hiden');
+
+        jsConfirmarEdicao.addEventListener('click', ()=>{
+            if(jsInputEdit.value.trim() === ''){
+                caixaDeErro('campoVazioCadastro');
+            }
+        });
     } else if (nome === 'prateleira'){
         jsSpanElement.classList.add('hiden');
         jsInputEdit.classList.remove('hiden');
+
+        jsConfirmarEdicao.addEventListener('click', ()=>{
+            if(jsInputEdit.value.trim() === ''){
+                caixaDeErro('campoVazioCadastro');
+            }
+        });
     } else if (nome === 'fornecedor'){
         jsSpanElement.classList.add('hiden');
         jsInputEdit.classList.remove('hiden');
+
+        jsConfirmarEdicao.addEventListener('click', ()=>{
+            if(jsInputEdit.value.trim() === ''){
+                caixaDeErro('campoVazioCadastro');
+            }
+        });
     } else {
         jsSpanElement.classList.add('hiden');
         jsInputEdit.classList.remove('hiden');
+
+        jsConfirmarEdicao.addEventListener('click', ()=>{
+            if(jsInputEdit.value.trim() === ''){
+                caixaDeErro('campoVazioCadastro');
+            }
+        });
     }
+
+        jsCancelarEdicao.addEventListener('click', ()=>{
+
+        jsEditBtns.forEach((editBtn)=>{
+        editBtn.classList.add('hiden');
+    });
+
+    jsButtonsBox.classList.remove('buttonsBoxEdit');
+
+    jsExcluirBtn.classList.remove('hiden');
+
+    removerCampoEdicao(nome);
+    }
+    );
 };
+
+function removerCampoEdicao(nome){
+
+    const jsInputEdit = document.querySelector(`.js-edit-${nome}`);
+    const jsSpanElement = document.querySelector(`.${nome}`)
+
+      if(nome === 'nome'){
+        jsSpanElement.classList.remove('hiden');
+        jsInputEdit.classList.add('hiden');
+        
+    } else if(nome === 'categoria'){
+        jsSpanElement.classList.remove('hiden');
+        jsInputEdit.classList.add('hiden');
+    } else if (nome === 'quantidade'){
+        jsSpanElement.classList.remove('hiden');
+        jsInputEdit.classList.add('hiden');
+    } else if (nome === 'estoqueMinimo'){
+        jsSpanElement.classList.remove('hiden');
+        jsInputEdit.classList.add('hiden');
+    } else if (nome === 'prateleira'){
+        jsSpanElement.classList.remove('hiden');
+        jsInputEdit.classList.add('hiden');
+    } else if (nome === 'fornecedor'){
+        jsSpanElement.classList.remove('hiden');
+        jsInputEdit.classList.add('hiden');
+    } else if(nome === 'dataEntrada') {
+        jsSpanElement.classList.remove('hiden');
+        jsInputEdit.classList.add('hiden');
+    }
+}
 
 jsProdutoBox.innerHTML = produtoHTML;
 
@@ -102,7 +204,8 @@ editBtns.forEach((editBtn)=>{
     );
 })
 
+const jsCloseError = document.querySelector('.jsCloseError');
 
-jsEditarBtn.addEventListener('click', ()=>{
-    editarProduto();
-})
+jsCloseError.addEventListener('click', closeMessageBox)
+
+

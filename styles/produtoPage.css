@@ -47,6 +47,12 @@
 
 .buttonsBox{
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.buttonsBoxEdit{
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
@@ -58,7 +64,7 @@ button{
     justify-content: center;
     gap: 0.5rem;
     text-transform: uppercase;
-    width: 100px;
+    width: 200px;
     height: 30px;
     border-radius: 5px;
     font-weight: 900;
@@ -73,10 +79,6 @@ button:hover{
 
 button:active{
     transform: scale(80%);
-}
-
-#editar{
-    background-color: green;
 }
 
 #excluir{
