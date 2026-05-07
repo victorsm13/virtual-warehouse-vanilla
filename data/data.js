@@ -1,4 +1,4 @@
-export const produtos = JSON.parse(localStorage.getItem("produtos")) || [
+export let produtos = JSON.parse(localStorage.getItem("produtos")) || [
   // 📎 Materiais de escritório
 {
   id: "A7K9X2M4P8Q1L5N3R6T0V2Y8B4C1D7E9",
@@ -503,5 +503,28 @@ export function atualizarProduto(nome, id, valor){
         saveToStorage();
 
       }
+
+}
+
+export function excluirProduto(id){
+
+  console.log(id);
+
+  let newProducts = [];
+
+  produtos.forEach((produto)=>{
+
+    if(produto.id !== id){
+      newProducts.push(produto);
+    }
+  });
+
+  console.log('Deu certo');
+  
+  produtos = newProducts;
+
+  saveToStorage();
+
+  window.location.href = ("../estoquePage.html");
 
 }

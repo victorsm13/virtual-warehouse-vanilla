@@ -1,5 +1,6 @@
-import { produtos, atualizarProduto } from "../data/data.js";
+import { produtos, atualizarProduto, excluirProduto } from "../data/data.js";
 import { caixaDeErro, closeMessageBox } from "./utils/messagesBox.js";
+import { confirmarMovimentação } from "./utils/confirmarPromise.js"
 
 randerProducts();
 
@@ -231,7 +232,22 @@ editBtns.forEach((editBtn)=>{
 
 const jsCloseError = document.querySelector('.jsCloseError');
 
-jsCloseError.addEventListener('click', closeMessageBox)
+jsCloseError.addEventListener('click', closeMessageBox);
 
+const jsExcluirBtn = document.querySelector('.js-excluir-btn');
+
+
+jsExcluirBtn.addEventListener('click', async ()=>{
+
+    caixaDeErro('exclusaoProduto');
+
+    const resposta = await confirmarMovimentação();
+
+    if(resposta){
+        excluirProduto(matchingProduct.id);
+        return;
+    } 
+
+})
 
 }

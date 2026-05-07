@@ -47,5 +47,13 @@ export const caixaDeErro = (tipo)=>{
         jsMessageBox.classList.remove('hiden');
         jsMessageButtons.classList.remove('hiden');
         jsMessage.innerText = message;
+        
+    } else if (tipo === 'exclusaoProduto') {
+        message = 'Tem certeza que deseja exluir o produto?'
+
+        jsCloseError.classList.add('hiden');
+        jsMessageBox.classList.remove('hiden');
+        jsMessageButtons.classList.remove('hiden');
+        jsMessage.innerText = message;
     }
 }
