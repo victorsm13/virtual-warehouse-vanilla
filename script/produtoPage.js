@@ -1,5 +1,9 @@
-import { produtos } from "../data/data.js";
+import { produtos, atualizarProduto } from "../data/data.js";
 import { caixaDeErro, closeMessageBox } from "./utils/messagesBox.js";
+
+randerProducts();
+
+function randerProducts(){
 
 const url = new URL (window.location.href);
 
@@ -81,7 +85,15 @@ function editarCampo(nome){
         jsConfirmarEdicao.addEventListener('click', ()=>{
             if(jsInputEdit.value.trim() === ''){
                 caixaDeErro('campoVazioCadastro');
-            }
+                return;
+            } else {
+                atualizarProduto('nome', matchingProduct.id, jsInputEdit.value);
+
+                jsInputEdit.value = '';
+
+                removerCampoEdicao(nome);
+                randerProducts();
+            };
         });
         
     } else if(nome === 'categoria'){
@@ -91,6 +103,12 @@ function editarCampo(nome){
         jsConfirmarEdicao.addEventListener('click', ()=>{
             if(jsInputEdit.value.trim() === ''){
                 caixaDeErro('campoVazioCadastro');
+            } else {
+                atualizarProduto('categoria', matchingProduct.id, jsInputEdit.value);
+                jsInputEdit.value = '';
+
+                removerCampoEdicao(nome);
+                randerProducts();
             }
         });
     } else if (nome === 'quantidade'){
@@ -100,6 +118,11 @@ function editarCampo(nome){
         jsConfirmarEdicao.addEventListener('click', ()=>{
             if(jsInputEdit.value.trim() === ''){
                 caixaDeErro('campoVazioCadastro');
+            } else {
+                atualizarProduto('quantidade', matchingProduct.id, jsInputEdit.value);
+                jsInputEdit.value = '';
+                removerCampoEdicao(nome);
+                randerProducts();
             }
         });
     } else if (nome === 'estoqueMinimo'){
@@ -109,6 +132,12 @@ function editarCampo(nome){
         jsConfirmarEdicao.addEventListener('click', ()=>{
             if(jsInputEdit.value.trim() === ''){
                 caixaDeErro('campoVazioCadastro');
+            } else {
+                atualizarProduto('estoqueMinimo', matchingProduct.id, jsInputEdit.value);
+                jsInputEdit.value = '';
+                removerCampoEdicao(nome);
+                randerProducts();
+
             }
         });
     } else if (nome === 'prateleira'){
@@ -118,6 +147,11 @@ function editarCampo(nome){
         jsConfirmarEdicao.addEventListener('click', ()=>{
             if(jsInputEdit.value.trim() === ''){
                 caixaDeErro('campoVazioCadastro');
+            } else {
+                atualizarProduto('prateleira', matchingProduct.id, jsInputEdit.value);
+                jsInputEdit.value = '';
+                removerCampoEdicao(nome);
+                randerProducts();
             }
         });
     } else if (nome === 'fornecedor'){
@@ -127,6 +161,11 @@ function editarCampo(nome){
         jsConfirmarEdicao.addEventListener('click', ()=>{
             if(jsInputEdit.value.trim() === ''){
                 caixaDeErro('campoVazioCadastro');
+            } else {
+                atualizarProduto('fornecedor', matchingProduct.id, jsInputEdit.value);
+                jsInputEdit.value = '';
+                removerCampoEdicao(nome);
+                randerProducts();
             }
         });
     } else {
@@ -136,6 +175,12 @@ function editarCampo(nome){
         jsConfirmarEdicao.addEventListener('click', ()=>{
             if(jsInputEdit.value.trim() === ''){
                 caixaDeErro('campoVazioCadastro');
+                return;
+            } else {
+                atualizarProduto('dataEntrada', matchingProduct.id, jsInputEdit.value);
+                jsInputEdit.value = '';
+                removerCampoEdicao(nome);
+                randerProducts();
             }
         });
     }
@@ -159,30 +204,10 @@ function removerCampoEdicao(nome){
 
     const jsInputEdit = document.querySelector(`.js-edit-${nome}`);
     const jsSpanElement = document.querySelector(`.${nome}`)
-
-      if(nome === 'nome'){
+      
         jsSpanElement.classList.remove('hiden');
         jsInputEdit.classList.add('hiden');
         
-    } else if(nome === 'categoria'){
-        jsSpanElement.classList.remove('hiden');
-        jsInputEdit.classList.add('hiden');
-    } else if (nome === 'quantidade'){
-        jsSpanElement.classList.remove('hiden');
-        jsInputEdit.classList.add('hiden');
-    } else if (nome === 'estoqueMinimo'){
-        jsSpanElement.classList.remove('hiden');
-        jsInputEdit.classList.add('hiden');
-    } else if (nome === 'prateleira'){
-        jsSpanElement.classList.remove('hiden');
-        jsInputEdit.classList.add('hiden');
-    } else if (nome === 'fornecedor'){
-        jsSpanElement.classList.remove('hiden');
-        jsInputEdit.classList.add('hiden');
-    } else if(nome === 'dataEntrada') {
-        jsSpanElement.classList.remove('hiden');
-        jsInputEdit.classList.add('hiden');
-    }
 }
 
 jsProdutoBox.innerHTML = produtoHTML;
@@ -209,3 +234,4 @@ const jsCloseError = document.querySelector('.jsCloseError');
 jsCloseError.addEventListener('click', closeMessageBox)
 
 
+}

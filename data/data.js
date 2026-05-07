@@ -425,3 +425,92 @@ export function saidaProdutoQuantidade(id, quantidade){
 
   saveToStorage();
 }
+
+export function atualizarProduto(nome, id, valor){
+  let matchingProduct;
+
+   if(nome === 'nome'){
+
+        produtos.forEach((produto)=>{
+
+          if(produto.id === id){
+            matchingProduct = produto;
+          }
+        });
+
+        matchingProduct.nome = valor;
+
+        saveToStorage();
+      } else if(nome === 'categoria'){
+        produtos.forEach((produto)=>{
+
+          if(produto.id === id){
+            matchingProduct = produto;
+          }
+        });
+
+        matchingProduct.categoria = valor;
+
+        saveToStorage();
+         
+      } else if (nome === 'quantidade'){
+           produtos.forEach((produto)=>{
+
+          if(produto.id === id){
+            matchingProduct = produto;
+          }
+        });
+
+        matchingProduct.quantidade = valor;
+
+        saveToStorage();
+      } else if (nome === 'estoqueMinimo'){
+         produtos.forEach((produto)=>{
+
+          if(produto.id === id){
+            matchingProduct = produto;
+          }
+        });
+
+        matchingProduct.estoqueMinimo = valor;
+
+        saveToStorage();
+          
+      } else if (nome === 'prateleira'){
+         produtos.forEach((produto)=>{
+
+          if(produto.id === id){
+            matchingProduct = produto;
+          }
+        });
+
+        matchingProduct.localizacao = valor;
+
+        saveToStorage();
+         
+      } else if (nome === 'fornecedor'){
+         produtos.forEach((produto)=>{
+
+          if(produto.id === id){
+            matchingProduct = produto;
+          }
+        });
+
+        matchingProduct.fornecedor = valor;
+
+        saveToStorage();
+      } else {
+         produtos.forEach((produto)=>{
+
+          if(produto.id === id){
+            matchingProduct = produto;
+          }
+        });
+
+        matchingProduct.dataEntrada = valor;
+
+        saveToStorage();
+
+      }
+
+}
