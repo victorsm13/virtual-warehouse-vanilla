@@ -41,14 +41,28 @@
     <main id="mainEstoquePage">
 
         <div class="main-header">
-         <div class="search-container">
+         <div class="search-container js-search-container">
             <div class="search-box">
                 <input class="search-input js-search-input" type="text" placeholder="Pesquise aqui...">
                 <img class="search-icon icon js-search-icon" src="./assets/search-icon.svg" alt="search-icon">
             </div>
-            <div class="filter-box">
-                <span>Filtrar</span>
-                <img class="filter-icon icon" src="./assets/filter-icon.svg" alt="filter-icon">
+            <div class="filter-box js-filter-box">
+                <input type="checkbox" id="check-filter">
+                <label for="check-filter" class="filtrarMain">
+                    <span>Filtrar</span>
+                    <img class="filter-icon icon" src="./assets/filter-icon.svg" alt="filter-icon">
+                </label>
+            </div> 
+            <div class="filtar-categoria js-filtrar-categoria hiden">
+                <label for="">Categoria</label>
+               <select class="jsCategoria" name="cateforia" id="categoria">
+                    <option value="escritorio">Materias de escritório</option>
+                    <option value="TI">Equipamentos de TI</option>
+                    <option value="eletrico">Materias elétricos</option>
+                    <option value="Limpeza">Limpeza e manutenção</option>
+                    <option value="producao">Materias de produção</option>
+                    <option value="geral">Geral</option>
+               </select>
             </div> 
         </div>
         </div>

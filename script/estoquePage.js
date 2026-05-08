@@ -194,5 +194,21 @@ const jsSearchIcon = document.querySelector('.js-search-icon');
 
 jsSearchIcon.addEventListener('click', pesquisarProduto);
 
+const jsFilterBox = document.querySelector('.js-filter-box');
+
+const jsCheck = document.getElementById('check-filter')
+
+const jsFiltrarCategoria = document.querySelector('.js-filtrar-categoria');
+
+jsFilterBox.addEventListener('click', ()=>{
+
+   if(jsCheck.checked){
+      jsFiltrarCategoria.classList.remove('hiden')
+   } else {
+      jsFiltrarCategoria.classList.add('hiden');
+   }
+
+});
+
 };
 

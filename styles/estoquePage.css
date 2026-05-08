@@ -58,8 +58,15 @@
 }
 
 .filter-box:hover{
-    background-color: rgb(240, 238, 238);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     border: none;
+}
+
+.filtrarMain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .icon{
@@ -174,4 +181,23 @@
     color: #fff;
     font-weight: 900;
     border-radius: 5px;
+}
+
+#check-filter{
+    display: none;
+}
+
+.filtar-categoria{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);   
+    padding: 0 0.5rem 0 0.5rem;
+    transition: 0.3s ease all;
+
+}
+
+.hiden{
+    display: none;
 }
