@@ -36,9 +36,15 @@
 }
 
 .search-box .search-icon{
+    cursor: pointer;
     position: absolute;
     left: 2%;
     top: 10%;
+    transition: 0.3s ease all;
+}
+
+.search-box .search-icon:hover{
+    transform: scale(1.1);
 }
 
 .filter-box{

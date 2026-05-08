@@ -49,7 +49,7 @@ export const caixaDeErro = (tipo)=>{
         jsMessage.innerText = message;
         
     } else if (tipo === 'exclusaoProduto') {
-        message = 'Tem certeza que deseja exluir o produto?'
+        message = 'Tem certeza que deseja excluir o produto?'
 
         jsCloseError.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
