@@ -210,5 +210,39 @@ jsFilterBox.addEventListener('click', ()=>{
 
 });
 
+const filtrarProdutos = ()=>{
+
+   let produtosFiltradosHTML = '';
+
+   const jsCategoria = document.querySelector('.jsCategoria');
+
+   let produtosFiltrados = produtos.filter(produto => produto.categoria === jsCategoria.value);
+
+   produtosFiltrados.forEach((produto)=>{
+
+      produtosFiltradosHTML += `
+      <div class="produtos-box">
+                  <span class="js-atencao-${produto.id} atencao ${estiloEstoqueBaixo(produto.id)}">ATENÇÃO: ESTOQUE BAIXO</span>
+                  <a href="/produtoPage.html?produtoNome=${produto.nome}&produtoId=${produto.id}"><img id="page-icon" src="./assets/page-icon.svg" alt="page-icon"></a>
+                  <div>Nome: <span class="nome-produto produto">${produto.nome}</span></div>
+                  <div>Quantidade: <span class="js-quantidade-${produto.id} quantidade-produto produto ${estiloQuantidade(produto.id)}">${produto.quantidade}</span></div>
+                  <input class="js-movimentacao-${produto.id} movimentacao" type="number">
+                  <div class="buttons-box">
+                     <button class="jsEntradaBtt" data-produto-id="${produto.id}" id="entrada-produto">Entrada</button>
+                     <button class="jsSaidaBtt" data-produto-id="${produto.id}" id="saida-produto">Saída</button>
+                  </div>
+               </div>
+      `
+   })
+
+   jsProdutosContainer.innerHTML = '';
+   jsProdutosContainer.innerHTML = produtosFiltradosHTML;
+}
+
+
+const jsFiltrarBtn = document.querySelector('.jsFiltrarBtn');
+
+jsFiltrarBtn.addEventListener('click', filtrarProdutos);
+
 };
 
