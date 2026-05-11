@@ -1,7 +1,7 @@
 import { produtos, entradaProdutoQuantidade, saidaProdutoQuantidade } from "../data/data.js";
 import { closeMessageBox, caixaDeErro } from "./utils/messagesBox.js";
 import { confirmarMovimentação } from "./utils/confirmarPromise.js";
-import { movimentacaoProduto } from "./historicoPage.js";
+import { movimentacaoProduto } from "../data/historico.js";
 
 randerProducts();
 
@@ -46,12 +46,10 @@ const  entradaProduto = async (id) => {
 
    if(confirmacao){
       entradaProdutoQuantidade(id, Number(valor.value));
-      movimentacaoProduto(id, 'entrada', valor.value);
+       movimentacaoProduto(id, 'entrada', valor.value);
       valor.value = '';
       randerProducts();
-      
    } 
-
 
 }
 
@@ -128,8 +126,10 @@ function estiloEstoqueBaixo(id){
 
 const jsCloseError = document.querySelector('.jsCloseError');
 
-const jsEntradaBtt = document.querySelectorAll(".jsEntradaBtt");
-const jsSaidaBtt = document.querySelectorAll(".jsSaidaBtt");
+entradaEsaidaBtns();
+function entradaEsaidaBtns(){
+   const jsEntradaBtt = document.querySelectorAll(".jsEntradaBtt");
+   const jsSaidaBtt = document.querySelectorAll(".jsSaidaBtt");
 
 jsEntradaBtt.forEach((button)=>{
 
@@ -148,6 +148,9 @@ jsSaidaBtt.forEach((button)=>{
       saidaProduto(buttonId);
    })
 });
+}
+
+
 
 jsCloseError.addEventListener('click', closeMessageBox);
 
@@ -186,13 +189,14 @@ const pesquisarProduto = ()=>{
       `;
 
       });
-
       };
 
    jsProdutosContainer.innerHTML = '';
    jsProdutosContainer.innerHTML = produtosFiltradosHTML;
 
    jsSearchInput.value = '';
+
+   entradaEsaidaBtns();
 }
 
 const jsSearchIcon = document.querySelector('.js-search-icon');
@@ -242,6 +246,8 @@ const filtrarProdutos = ()=>{
 
    jsProdutosContainer.innerHTML = '';
    jsProdutosContainer.innerHTML = produtosFiltradosHTML;
+
+   entradaEsaidaBtns();
 }
 
 

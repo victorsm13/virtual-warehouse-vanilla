@@ -1,24 +1,30 @@
-let historico = JSON.parse(localStorage.getItem('historico')) || [];
+import { historico } from "../data/historico.js";
+import { produtos } from "../data/data.js";
 
-export function movimentacaoProduto(id, tipo, valor){
+const jsHistoricoContainer = document.querySelector('.js-historico-container ');
 
-    const data = new Date();
-    let ano = data.getFullYear();
-    let mes = data.getMonth() + 1;
-    let dia = data.getDate();
-    let dataString = `${ano}-${ mes < 10 ? '0'+ mes : mes }-${dia < 10 ? '0' + dia : dia}`;
+let historicoHTML = ``;
 
-    historico.push({
-        id: id,
-        modificacao: tipo,
-        valor: valor,
-        data: dataString
+historico.forEach((his)=>{
+
+    let matchingProduct;
+
+    produtos.forEach((produto)=>{
+
+        if(produto.id === his.id){
+            console.log('Olá')
+            matchingProduct = produto;
+        }
     });
 
-    saveToStorage();
+    historicoHTML+= `
+    <div class="historico-grid">
+            <span>Produto: <span class="var">${matchingProduct.nome}</span></span>
+            <span>Movimentação:  <span class="var">${his.modificacao}</span></span>
+            <span>Valor:  <span class="var">${his.valor}</span></span>
+            <span>Data <span class="var">${his.data}</span></span>
+        </div>
+    `
+});
 
-}
-
-function saveToStorage(){
-    localStorage.setItem('historico', JSON.stringify(historico));
-}
+jsHistoricoContainer.innerHTML = historicoHTML;

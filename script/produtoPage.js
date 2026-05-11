@@ -1,7 +1,7 @@
 import { produtos, atualizarProduto, excluirProduto } from "../data/data.js";
 import { caixaDeErro, closeMessageBox } from "./utils/messagesBox.js";
 import { confirmarMovimentação } from "./utils/confirmarPromise.js"
-import { movimentacaoProduto } from "./historicoPage.js";
+import { movimentacaoProduto } from "../data/historico.js";
 
 randerProducts();
 
