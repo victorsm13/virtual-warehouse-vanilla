@@ -23,3 +23,5 @@ function saveToStorage(){
     localStorage.setItem('historico', JSON.stringify(historico));
 }
 
+
+

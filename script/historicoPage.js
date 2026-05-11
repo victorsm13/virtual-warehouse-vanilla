@@ -1,30 +1,77 @@
 import { historico } from "../data/historico.js";
 import { produtos } from "../data/data.js";
 
-const jsHistoricoContainer = document.querySelector('.js-historico-container ');
+const jsHistoricoContainer = document.querySelector('.js-historico-container');
+const jsPaginacaoContainer = document.querySelector('.js-paginacao')
 
-let historicoHTML = ``;
 
-historico.forEach((his)=>{
+const itensPorPagina = 10;
+let paginaAtual = 1;
 
-    let matchingProduct;
+function renderizarHistorico(){
 
-    produtos.forEach((produto)=>{
+    jsHistoricoContainer.innerHTML = '';
 
-        if(produto.id === his.id){
-            console.log('Olá')
-            matchingProduct = produto;
-        }
+    const inicio = (paginaAtual - 1) * itensPorPagina;
+    const fim = inicio + itensPorPagina;
+
+    const historicoPagina = historico.slice(inicio, fim);
+
+    let historicoHTML = '';
+
+    historicoPagina.forEach((historicoProduto)=>{
+        let matchingProduct;
+
+        produtos.forEach((produto)=>{
+            if(produto.id === historicoProduto.id){
+                matchingProduct = produto;
+            }
+        });
+
+        historicoHTML+= `
+        <div class="historico-grid">
+            <span>Produto: <span class="var">${matchingProduct.nome}</span></span>
+            <span>Movimentação:  <span class="var">${historicoProduto.modificacao}</span></span>
+            <span>Valor:  <span class="var">${historicoProduto.valor}</span></span>
+            <span>Data <span class="var">${historicoProduto.data}</span></span>
+        </div>
+        `;
     });
 
-    historicoHTML+= `
-    <div class="historico-grid">
-            <span>Produto: <span class="var">${matchingProduct.nome}</span></span>
-            <span>Movimentação:  <span class="var">${his.modificacao}</span></span>
-            <span>Valor:  <span class="var">${his.valor}</span></span>
-            <span>Data <span class="var">${his.data}</span></span>
-        </div>
-    `
-});
+    jsHistoricoContainer.innerHTML = historicoHTML;
 
-jsHistoricoContainer.innerHTML = historicoHTML;
+};
+
+function rederizacaoPagina(){
+    jsPaginacaoContainer.innerHTML = '';
+
+    const totalPaginas = Math.ceil(historico.length / itensPorPagina);
+
+    for(let  i = 1; i <= totalPaginas; i++){
+
+        const botao = document.createElement('button');
+        botao.innerText = i;
+        botao.classList.add('botao-paginacao');
+        
+        if(i === paginaAtual){
+            botao.classList.add('ativo');
+        }
+        
+        botao.addEventListener('click', ()=>{
+
+            document.querySelectorAll('.botao-paginacao').forEach((btn)=>{
+                btn.classList.remove('ativo');
+            });
+
+            botao.classList.add('ativo');
+
+            paginaAtual = i;
+            renderizarHistorico();
+        });
+    
+    jsPaginacaoContainer.appendChild(botao);
+    }
+};
+
+renderizarHistorico();
+rederizacaoPagina();

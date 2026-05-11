@@ -2,6 +2,7 @@ import { produtos, atualizarProduto, excluirProduto } from "../data/data.js";
 import { caixaDeErro, closeMessageBox } from "./utils/messagesBox.js";
 import { confirmarMovimentação } from "./utils/confirmarPromise.js"
 import { movimentacaoProduto } from "../data/historico.js";
+import { historico } from "../data/historico.js";
 
 randerProducts();
 
@@ -23,6 +24,20 @@ produtos.forEach((produto)=>{
         matchingProduct = produto
     };
 });
+
+
+let historicoProduto;
+
+
+for(let i = 0; i < historico.length ; i++){
+    if(matchingProduct.id === historico[i].id){
+        historicoProduto = historico[i].data;
+        break;
+    } else {
+        historicoProduto = 'Sem histórico';
+    }
+};
+
 
 
 produtoHTML = `
@@ -49,7 +64,7 @@ produtoHTML = `
                 </select> <img class=" icon" data-edit="prateleira" src="./assets/edit-icon-black.svg" alt=""></div>
                 <div>Fornecedor: <span class="produto fornecedor">${matchingProduct.fornecedor}</span><input class="js-edit-fornecedor hiden inputProduto" type="text"> <img class="icon" data-edit="fornecedor" src="./assets/edit-icon-black.svg" alt=""></div>
                 <div>Data de entradada: <span class="produto dataEntrada">${matchingProduct.dataEntrada}</span><input class="js-edit-dataEntrada hiden inputProduto" type="date"> <img class=" icon" data-edit="dataEntrada" src="./assets/edit-icon-black.svg" alt=""></div>
-                <div>Última moviemntação: <span class="produto"></span></div>   
+                <div>Última movimentação: <span class="produto">${historicoProduto}</span></div>   
         </div>
         <div class="buttonsBox">
             <button class="jsConfirmarEdicao hiden editBtn">Confirmar Edição</button>

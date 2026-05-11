@@ -34,3 +34,33 @@
 .historico-grid .var{
     font-weight: 300;
 }
+
+.js-paginacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.botao-paginacao{
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease all;
+}
+
+.botao-paginacao:hover{
+    background-color: black;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+}
+
+.ativo{
+    background-color: black;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+}
