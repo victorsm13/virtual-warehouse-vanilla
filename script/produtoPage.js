@@ -1,6 +1,7 @@
 import { produtos, atualizarProduto, excluirProduto } from "../data/data.js";
 import { caixaDeErro, closeMessageBox } from "./utils/messagesBox.js";
 import { confirmarMovimentação } from "./utils/confirmarPromise.js"
+import { movimentacaoProduto } from "./historicoPage.js";
 
 randerProducts();
 
@@ -15,7 +16,6 @@ let produtoHTML = '';
 const jsProdutoBox = document.querySelector('.jsProdutoBox');
 
 let matchingProduct;
-
 
 produtos.forEach((produto)=>{
 
@@ -58,6 +58,8 @@ produtoHTML = `
         </div>
 `;
 
+
+
 function editarCampo(nome){
 
     const jsInputEdit = document.querySelector(`.js-edit-${nome}`);
@@ -89,7 +91,7 @@ function editarCampo(nome){
                 return;
             } else {
                 atualizarProduto('nome', matchingProduct.id, jsInputEdit.value);
-
+                movimentacaoProduto(matchingProduct.id, 'edicaoNome', jsInputEdit.value);
                 jsInputEdit.value = '';
 
                 removerCampoEdicao(nome);
@@ -106,6 +108,7 @@ function editarCampo(nome){
                 caixaDeErro('campoVazioCadastro');
             } else {
                 atualizarProduto('categoria', matchingProduct.id, jsInputEdit.value);
+                movimentacaoProduto(matchingProduct.id, 'edicaoCategoria', jsInputEdit.value);
                 jsInputEdit.value = '';
 
                 removerCampoEdicao(nome);
@@ -121,6 +124,7 @@ function editarCampo(nome){
                 caixaDeErro('campoVazioCadastro');
             } else {
                 atualizarProduto('quantidade', matchingProduct.id, jsInputEdit.value);
+                movimentacaoProduto(matchingProduct.id, 'entrada', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
@@ -135,6 +139,7 @@ function editarCampo(nome){
                 caixaDeErro('campoVazioCadastro');
             } else {
                 atualizarProduto('estoqueMinimo', matchingProduct.id, jsInputEdit.value);
+                movimentacaoProduto(matchingProduct.id, 'edicaoEstoqueMinimo', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
@@ -150,6 +155,7 @@ function editarCampo(nome){
                 caixaDeErro('campoVazioCadastro');
             } else {
                 atualizarProduto('prateleira', matchingProduct.id, jsInputEdit.value);
+                movimentacaoProduto(matchingProduct.id, 'edicaoPrateleira', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
@@ -164,6 +170,7 @@ function editarCampo(nome){
                 caixaDeErro('campoVazioCadastro');
             } else {
                 atualizarProduto('fornecedor', matchingProduct.id, jsInputEdit.value);
+                movimentacaoProduto(matchingProduct.id, 'edicaoFornecedor', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
@@ -179,6 +186,7 @@ function editarCampo(nome){
                 return;
             } else {
                 atualizarProduto('dataEntrada', matchingProduct.id, jsInputEdit.value);
+                movimentacaoProduto(matchingProduct.id, 'edicaoData', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
@@ -244,6 +252,7 @@ jsExcluirBtn.addEventListener('click', async ()=>{
     const resposta = await confirmarMovimentação();
 
     if(resposta){
+        movimentacaoProduto(matchingProduct.id, 'exclusaoProduto', matchingProduct.nome);
         excluirProduto(matchingProduct.id);
         return;
     } 

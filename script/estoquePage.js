@@ -1,6 +1,7 @@
 import { produtos, entradaProdutoQuantidade, saidaProdutoQuantidade } from "../data/data.js";
 import { closeMessageBox, caixaDeErro } from "./utils/messagesBox.js";
 import { confirmarMovimentação } from "./utils/confirmarPromise.js";
+import { movimentacaoProduto } from "./historicoPage.js";
 
 randerProducts();
 
@@ -45,9 +46,12 @@ const  entradaProduto = async (id) => {
 
    if(confirmacao){
       entradaProdutoQuantidade(id, Number(valor.value));
+      movimentacaoProduto(id, 'entrada', valor.value);
       valor.value = '';
       randerProducts();
+      
    } 
+
 
 }
 
@@ -64,6 +68,7 @@ const  saidaProduto = async (id) => {
 
    if(confirmacao){
       saidaProdutoQuantidade(id, Number(valor.value));
+      movimentacaoProduto(id, 'saida', valor.value);
       valor.value = '';
       randerProducts();
    } 
