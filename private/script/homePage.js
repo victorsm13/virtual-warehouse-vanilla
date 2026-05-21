@@ -1,6 +1,6 @@
 import { adicionarItem } from "../data/data.js";
-import { closeMessageBox, caixaDeErro } from "./utils/messagesBox.js";
-import { confirmarMovimentação } from "./utils/confirmarPromise.js";
+import { closeMessageBox, caixaDeErro } from "../utils/messagesBox.js";
+import { confirmarMovimentação } from "../utils/confirmarPromise.js";
 
 const jsAdicionarBtn = document.querySelector('.jsAdicionarBtn');
 const jsLimparBtn = document.querySelector('.jsLimparBtn');

@@ -6,11 +6,12 @@
     <title>Almoxarifado</title>
     <link rel="stylesheet" href="./styles/shared.css">
     <link rel="stylesheet" href="./styles/loginPage.css">
+    <link rel="stylesheet" href="./styles/registerPage.css">
 </head>
 <body>
 
-    <main id="loginPage">
-        <form class="form-container" action="login" method="post">
+    <main id="registerPage">
+        <form class="form-container-register" action="login" method="post">
             <div class="title">
                  <h1 id="title-login">entre</h1>
             </div>
@@ -18,18 +19,28 @@
                 <label for="nome">Nome</label>
                 <div class="input-box">
                     <img class="icon" src="./assets/user-icon.svg" alt="user-icon">
-                    <input type="text" id="nome" required>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+            </div>
+             <div class="input-container">
+                <label for="email">E-mail</label>
+                <div class="input-box">
+                    <img class="icon" src="./assets/locker-icon.svg" alt="locker-icon">
+                    <input type="email" id="email" name="email" required>
                 </div>
             </div>
             <div class="input-container">
                 <label for="senha">Senha</label>
                 <div class="input-box">
                     <img class="icon" src="./assets/locker-icon.svg" alt="locker-icon">
-                    <input type="password" id="senha" required>
+                    <input type="password" id="senha" name="senha" required>
                 </div>
             </div>
             <div class="button-box">
                 <button type="submit" id="login-btn">Entre</button>
+            </div>
+            <div class="login-box">
+                <a href="./loginPage.html">Faça login</a>
             </div>
         </form>
     </main>
