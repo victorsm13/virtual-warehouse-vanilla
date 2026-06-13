@@ -157,8 +157,6 @@ jsCloseError.addEventListener('click', closeMessageBox);
 const pesquisarProduto = ()=>{
 
    let produtosFiltradosHTML = '';
-
-   const jsSearchInput = document.querySelector('.js-search-input');
    const jsSearchInputValue = jsSearchInput.value.toUpperCase();
 
    let produtosFiltrados = [];
@@ -221,7 +219,6 @@ jsFilterBox.addEventListener('click', ()=>{
 
 const filtrarProdutos = ()=>{
 
-   let produtosFiltradosHTML = '';
 
    const jsCategoria = document.querySelector('.jsCategoria');
 
@@ -255,5 +252,16 @@ const jsFiltrarBtn = document.querySelector('.jsFiltrarBtn');
 
 jsFiltrarBtn.addEventListener('click', filtrarProdutos);
 
+const jsSearchInput = document.querySelector('.js-search-input');
+
+jsSearchInput.addEventListener('keypress', (event)=>{
+
+   if(event.key === 'Enter'){
+      pesquisarProduto();
+   }
+})
+
 };
+
+
 
