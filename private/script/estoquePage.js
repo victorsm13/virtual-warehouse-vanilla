@@ -46,11 +46,15 @@ const  entradaProduto = async (id) => {
 
    if(confirmacao){
       entradaProdutoQuantidade(id, Number(valor.value));
-       movimentacaoProduto(id, 'entrada', valor.value);
+      movimentacaoProduto(id, 'entrada', valor.value);
       valor.value = '';
-      randerProducts();
-   } 
 
+      if(jsSearchInput.value.trim() !== ''){
+         pesquisarProduto();
+      } else{
+         randerProducts();
+      }
+   }
 }
 
 const  saidaProduto = async (id) => {
@@ -68,7 +72,11 @@ const  saidaProduto = async (id) => {
       saidaProdutoQuantidade(id, Number(valor.value));
       movimentacaoProduto(id, 'saida', valor.value);
       valor.value = '';
-      randerProducts();
+      if(jsSearchInput.value.trim() !== ''){
+         pesquisarProduto();
+      } else{
+         randerProducts();
+      }
    } 
 
 }
@@ -192,8 +200,6 @@ const pesquisarProduto = ()=>{
    jsProdutosContainer.innerHTML = '';
    jsProdutosContainer.innerHTML = produtosFiltradosHTML;
 
-   jsSearchInput.value = '';
-
    entradaEsaidaBtns();
 }
 
@@ -219,8 +225,9 @@ jsFilterBox.addEventListener('click', ()=>{
 
 const filtrarProdutos = ()=>{
 
-
    const jsCategoria = document.querySelector('.jsCategoria');
+
+   let produtosFiltradosHTML = '';
 
    let produtosFiltrados = produtos.filter(produto => produto.categoria === jsCategoria.value);
 
