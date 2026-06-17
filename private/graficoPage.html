@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almoxarifado</title>
     <link rel="stylesheet" href="../public/styles/shared.css">
-    <link rel="stylesheet" href="../public/styles/homePage.css">
+    <link rel="stylesheet" href="../public/styles/graficoPage.css">
 </head>
 <body>
 
@@ -13,7 +13,6 @@
 
         <a class="title" href="./homePage.html"><h1>Almoxarifado</h1></a>
        
-
         <input type="checkbox" id="check">
         <label for="check" class="icons">
             <img src="../public/assets/menu-closer.svg" alt="menu-icon" id="menuIcon">
@@ -29,8 +28,41 @@
     </header>
 
     <main id="mainGraficoPage">
+        <h2>Gráfico</h2>
+
+        <div class="filtroBox">
+            <div class="dataBox">
+                <div class="dataContainer">
+                    <span>Data inicial:</span>
+                    <input class="jsDataInicial dataInicial" type="date">
+                </div>
+                <div class="dataContainer">
+                    <span>Data final:</span>
+                    <input class="jsDataFinal dataFinal" type="date">
+                </div>
+            </div>
+            <div class="produtoBox">
+                <label for="produto">Produto:</label>
+                <select class="jsProduto" name="produto" id="produto">
+
+                </select>
+            </div>
+            <div class="tipoMovimentação">
+                <label for="tipoMovimentacao">Tipo de Movimentação:</label>
+                <select class="jsTipoMovimentacao" name="tipoMovimentacao" id="tipoMovimentacao">
+                    <option value="entrada">Entrada</option>
+                    <option value="saida">Saída</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="buttonsBox">
+            <button class='jsButtonGrafico' id="gerarGráfico">Gerar Gráfico</button>
+        </div>
+        
     </main>
     
-    <script type="module" src="./script/homePage.js"></script>
+    <script type="module" src="./script/graficoPage.js"></script>
 </body>
 </html>
