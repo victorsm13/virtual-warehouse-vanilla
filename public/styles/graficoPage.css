@@ -43,3 +43,10 @@ button{
 button:hover{
     opacity: 0.9;
 }
+
+.graficoBox{
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

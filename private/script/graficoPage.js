@@ -15,6 +15,8 @@ jsProduto.innerHTML = produtoHTML;
 
 const jsButtonGrafico = document.querySelector('.jsButtonGrafico');
 
+let instanciaGrafico = null;
+
 function gerarGrafico(){
     const dataInicial = document.querySelector('.jsDataInicial').value;
     const dataFinal = document.querySelector('.jsDataFinal').value;
@@ -26,9 +28,8 @@ function gerarGrafico(){
         return;
     } else{
 
-        const chartJs = document.getElementById('grafico');
-
-        let quantidade = 0;
+        let quantidade = [];
+        let valor = 0;
 
         const copiaHistorico = [...historico]; 
         const copiaProdutos = [...produtos];
@@ -37,20 +38,48 @@ function gerarGrafico(){
 
         console.log(datas);
 
-        let nomeProduto;
+        let nomeProduto = [];
 
         produtos.forEach((produto)=>{
             if(produto.id === produtoSelecionado){
-                nomeProduto = produto.nome;
+                nomeProduto.push(produto.nome);
             }
         });
 
         copiaHistorico.forEach((produto)=>{
             if(produto.id === produtoSelecionado && produto.modificacao === tipoMovimentacao && datas.includes(produto.data)){
                 console.log('OLá');
-                quantidade += Number(produto.valor);
+                valor += Number(produto.valor);
             };
         });
+
+        quantidade.push(valor);
+
+    const chartJs = document.getElementById('grafico');
+
+    if(instanciaGrafico){
+        instanciaGrafico.destroy();
+    }
+
+    instanciaGrafico = new Chart(chartJs, {
+        type: 'doughnut',
+        data: {
+        labels: nomeProduto,
+        datasets: [{
+            label: tipoMovimentacao === 'entrada' ? 'Entradas' : 'Saídas',
+            data: quantidade,
+            backgroundColor: 'orange',
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
 
 
     };
