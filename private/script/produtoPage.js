@@ -1,5 +1,5 @@
 import { produtos, atualizarProduto, excluirProduto } from "../data/data.js";
-import { caixaDeErro, closeMessageBox } from "../utils/messagesBox.js";
+import { caixaDeErro, closeMessageBox, monstrarMensagemSucesso } from "../utils/messagesBox.js";
 import { confirmarMovimentação } from "../utils/confirmarPromise.js"
 import { movimentacaoProduto, historico } from "../data/historico.js";
 
@@ -110,6 +110,7 @@ function editarCampo(nome){
 
                 removerCampoEdicao(nome);
                 randerProducts();
+                monstrarMensagemSucesso('editadoSucesso');
             };
         });
         
@@ -127,6 +128,7 @@ function editarCampo(nome){
 
                 removerCampoEdicao(nome);
                 randerProducts();
+                monstrarMensagemSucesso('editadoSucesso');
             }
         });
     } else if (nome === 'quantidade'){
@@ -142,6 +144,7 @@ function editarCampo(nome){
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
+                monstrarMensagemSucesso('editadoSucesso');
             }
         });
     } else if (nome === 'estoqueMinimo'){
@@ -157,7 +160,7 @@ function editarCampo(nome){
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
-
+                monstrarMensagemSucesso('editadoSucesso');
             }
         });
     } else if (nome === 'prateleira'){
@@ -173,6 +176,7 @@ function editarCampo(nome){
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
+                monstrarMensagemSucesso('editadoSucesso');
             }
         });
     } else if (nome === 'fornecedor'){
@@ -188,6 +192,7 @@ function editarCampo(nome){
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
+                monstrarMensagemSucesso('editadoSucesso');
             }
         });
     } else {
@@ -204,6 +209,7 @@ function editarCampo(nome){
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
                 randerProducts();
+                monstrarMensagemSucesso('editadoSucesso');
             }
         });
     }

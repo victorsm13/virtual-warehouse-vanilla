@@ -1,5 +1,5 @@
 import { adicionarItem } from "../data/data.js";
-import { closeMessageBox, caixaDeErro } from "../utils/messagesBox.js";
+import { closeMessageBox, caixaDeErro, monstrarMensagemSucesso } from "../utils/messagesBox.js";
 import { confirmarMovimentação } from "../utils/confirmarPromise.js";
 
 const jsAdicionarBtn = document.querySelector('.jsAdicionarBtn');
@@ -76,6 +76,8 @@ const caixaDeDialogo = async ()=>{
     jsLocalizacao.value = '';
     jsFornecedor.value = '';
     jsDataEntrada.value = '';
+
+    monstrarMensagemSucesso('cadastroSucesso');
 
 
     } else{

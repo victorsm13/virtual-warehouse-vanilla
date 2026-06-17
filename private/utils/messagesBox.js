@@ -57,3 +57,31 @@ export const caixaDeErro = (tipo)=>{
         jsMessage.innerText = message;
     }
 }
+
+export function monstrarMensagemSucesso(mensagem){
+    const jsMessageBoxTwo = document.querySelector('.jsMessageBoxTwo');
+    const jsMessageTwo = document.querySelector('.jsMessageTwo');
+
+    let message;
+
+    if(mensagem === 'cadastroSucesso'){
+        message = 'Produto adicionado com sucesso!';
+        jsMessageTwo.innerText = message;
+    } else if(mensagem === 'entradaSucesso'){
+        message = 'Entrada realizada com sucesso!';;
+        jsMessageTwo.innerText = message;
+    } else if (mensagem === 'saidaSucesso' ){
+        message = 'Saída realizada com sucesso!';
+        jsMessageTwo.innerText = message;
+    } else if (mensagem === 'editadoSucesso'){
+        message = 'Produto editado com sucesso!';
+        jsMessageTwo.innerText = message;
+    }
+
+    jsMessageBoxTwo.classList.remove('hiden');
+
+    setTimeout(()=>{
+        jsMessageBoxTwo.classList.add('hiden');
+    }, 3000);
+
+}
