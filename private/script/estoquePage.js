@@ -39,7 +39,22 @@ const  entradaProduto = async (id) => {
    const resultado = verificarCampo(id);
 
    if(resultado){
+      caixaDeErro('quantidadeInválida');
+      return;
+   } else {
       caixaDeErro('confirmarEnrada');
+   }
+
+   let matchingProduct;
+
+    produtos.forEach((produto)=>{
+     if(produto.id === id){
+      matchingProduct = produto
+      }
+    });
+
+   if(Number(valor.value) < 0){
+      valor.value = Math.abs(Number(valor.value));
    }
 
    const confirmacao = await confirmarMovimentação('entrada');
@@ -65,6 +80,9 @@ const  saidaProduto = async (id) => {
    const resultado = verificarCampo(id);
 
    if(resultado){
+      caixaDeErro('quantidadeInválida');
+      return;
+   } else {
       caixaDeErro('confirmarEnrada');
    }
 
@@ -106,11 +124,10 @@ function verificarCampo(id){
    const valor = document.querySelector(`.js-movimentacao-${id}`);
 
    if(valor.value.trim() === ''){
-      caixaDeErro('quantidadeInválida');
+      return true;
+   } else {
       return false;
    }
-
-   return true;
 
 }
 
