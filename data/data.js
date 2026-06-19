@@ -395,8 +395,6 @@ export function entradaProdutoQuantidade(id, quantidade){
     }
   });
 
-  console.log(matchingProduct.quantidade)
-
   matchingProduct.quantidade += quantidade;
 
   saveToStorage();

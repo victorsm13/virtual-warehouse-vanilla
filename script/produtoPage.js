@@ -272,11 +272,11 @@ jsExcluirBtn.addEventListener('click', async ()=>{
     const resposta = await confirmarMovimentação();
 
     if(resposta){
-        movimentacaoProduto(matchingProduct.id, 'exclusaoProduto', matchingProduct.nome);
+        movimentacaoProduto(matchingProduct.nome, 'Excluído', '-');
         excluirProduto(matchingProduct.id);
         return;
     } 
 
 })
 
-}
+};

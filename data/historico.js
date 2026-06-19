@@ -1,6 +1,6 @@
 export let historico = JSON.parse(localStorage.getItem('historico')) || [];
 
-export function movimentacaoProduto(id, tipo, valor){
+export function movimentacaoProduto(nome, tipo, valor){
 
     const data = new Date();
     let ano = data.getFullYear();
@@ -9,7 +9,7 @@ export function movimentacaoProduto(id, tipo, valor){
     let dataString = `${ano}-${ mes < 10 ? '0'+ mes : mes }-${dia < 10 ? '0' + dia : dia}`;
 
     historico.unshift({
-        id: id,
+        nome: nome,
         modificacao: tipo,
         valor: valor,
         data: dataString

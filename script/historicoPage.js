@@ -20,17 +20,10 @@ function renderizarHistorico(){
     let historicoHTML = '';
 
     historicoPagina.forEach((historicoProduto)=>{
-        let matchingProduct;
-
-        produtos.forEach((produto)=>{
-            if(produto.id === historicoProduto.id){
-                matchingProduct = produto;
-            }
-        });
 
         historicoHTML+= `
         <div class="historico-grid">
-            <span>Produto: <span class="var">${matchingProduct.nome}</span></span>
+            <span>Produto: <span class="var">${historicoProduto.nome}</span></span>
             <span>Movimentação:  <span class="var">${historicoProduto.modificacao}</span></span>
             <span>Valor:  <span class="var">${historicoProduto.valor}</span></span>
             <span>Data <span class="var">${historicoProduto.data}</span></span>

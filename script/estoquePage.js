@@ -55,13 +55,13 @@ const  entradaProduto = async (id) => {
 
    if(Number(valor.value) < 0){
       valor.value = Math.abs(Number(valor.value));
-   }
+   };
 
    const confirmacao = await confirmarMovimentação('entrada');
 
    if(confirmacao){
       entradaProdutoQuantidade(id, Number(valor.value));
-      movimentacaoProduto(id, 'entrada', valor.value);
+      movimentacaoProduto(matchingProduct.nome, 'Entrada', valor.value);
       valor.value = '';
 
       if(jsSearchInput.value.trim() !== ''){
@@ -107,7 +107,7 @@ const  saidaProduto = async (id) => {
 
       if(confirmacao){
          saidaProdutoQuantidade(id, Number(valor.value));
-         movimentacaoProduto(id, 'saida', valor.value);
+         movimentacaoProduto(matchingProduct.nome, 'Saída', valor.value);
          valor.value = '';
          if(jsSearchInput.value.trim() !== ''){
             pesquisarProduto();
