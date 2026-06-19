@@ -7,7 +7,7 @@ const jsProduto = document.querySelector('.jsProduto');
 
 produtos.forEach((produto)=>{
     produtoHTML += `
-    <option value="${produto.id}">${produto.nome}</option>
+    <option value="${produto.nome}">${produto.nome}</option>
     `
 });
 
@@ -47,7 +47,7 @@ function gerarGrafico(){
         });
 
         copiaHistorico.forEach((produto)=>{
-            if(produto.id === produtoSelecionado && produto.modificacao === tipoMovimentacao && datas.includes(produto.data)){
+            if(produto.nome === produtoSelecionado && produto.modificacao === tipoMovimentacao && datas.includes(produto.data)){
                 console.log('OLá');
                 valor += Number(produto.valor);
             };
