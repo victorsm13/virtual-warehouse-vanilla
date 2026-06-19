@@ -3,9 +3,9 @@ import { caixaDeErro, closeMessageBox, monstrarMensagemSucesso } from "../utils/
 import { confirmarMovimentação } from "../utils/confirmarPromise.js"
 import { movimentacaoProduto, historico } from "../data/historico.js";
 
-randerProducts();
+renderProducts();
 
-function randerProducts(){
+function renderProducts(){
 
 const url = new URL (window.location.href);
 
@@ -109,7 +109,7 @@ function editarCampo(nome){
                 jsInputEdit.value = '';
 
                 removerCampoEdicao(nome);
-                randerProducts();
+                renderProducts();
                 monstrarMensagemSucesso('editadoSucesso');
             };
         });
@@ -127,7 +127,7 @@ function editarCampo(nome){
                 jsInputEdit.value = '';
 
                 removerCampoEdicao(nome);
-                randerProducts();
+                renderProducts();
                 monstrarMensagemSucesso('editadoSucesso');
             }
         });
@@ -143,7 +143,7 @@ function editarCampo(nome){
                 movimentacaoProduto(matchingProduct.id, 'entrada', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
-                randerProducts();
+                renderProducts();
                 monstrarMensagemSucesso('editadoSucesso');
             }
         });
@@ -159,7 +159,7 @@ function editarCampo(nome){
                 movimentacaoProduto(matchingProduct.id, 'edicaoEstoqueMinimo', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
-                randerProducts();
+                renderProducts();
                 monstrarMensagemSucesso('editadoSucesso');
             }
         });
@@ -175,7 +175,7 @@ function editarCampo(nome){
                 movimentacaoProduto(matchingProduct.id, 'edicaoPrateleira', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
-                randerProducts();
+                renderProducts();
                 monstrarMensagemSucesso('editadoSucesso');
             }
         });
@@ -191,7 +191,7 @@ function editarCampo(nome){
                 movimentacaoProduto(matchingProduct.id, 'edicaoFornecedor', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
-                randerProducts();
+                renderProducts();
                 monstrarMensagemSucesso('editadoSucesso');
             }
         });
@@ -208,7 +208,7 @@ function editarCampo(nome){
                 movimentacaoProduto(matchingProduct.id, 'edicaoData', jsInputEdit.value);
                 jsInputEdit.value = '';
                 removerCampoEdicao(nome);
-                randerProducts();
+                renderProducts();
                 monstrarMensagemSucesso('editadoSucesso');
             }
         });

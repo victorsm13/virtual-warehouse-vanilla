@@ -3,9 +3,9 @@ import { closeMessageBox, caixaDeErro, monstrarMensagemSucesso } from "../utils/
 import { confirmarMovimentação } from "../utils/confirmarPromise.js";
 import { movimentacaoProduto } from "../data/historico.js";
 
-randerProducts();
+renderProducts();
 
-function randerProducts(){
+function renderProducts(){
 
 const jsProdutosContainer = document.querySelector('.jsProdutosContainer');
 
@@ -52,7 +52,7 @@ const  entradaProduto = async (id) => {
       if(jsSearchInput.value.trim() !== ''){
          pesquisarProduto();
       } else{
-         randerProducts();
+         renderProducts();
       }
 
       monstrarMensagemSucesso('entradaSucesso');
@@ -77,7 +77,7 @@ const  saidaProduto = async (id) => {
       if(jsSearchInput.value.trim() !== ''){
          pesquisarProduto();
       } else{
-         randerProducts();
+         renderProducts();
       }
 
       monstrarMensagemSucesso('saidaSucesso');
