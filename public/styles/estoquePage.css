@@ -216,3 +216,11 @@
 .hiden{
     display: none;
 }
+
+@media (max-width: 785px){
+    .js-search-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
