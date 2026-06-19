@@ -42,7 +42,7 @@ const  entradaProduto = async (id) => {
       caixaDeErro('confirmarEnrada');
    }
 
-   const confirmacao = await confirmarMovimentação();
+   const confirmacao = await confirmarMovimentação('entrada');
 
    if(confirmacao){
       entradaProdutoQuantidade(id, Number(valor.value));
@@ -68,7 +68,7 @@ const  saidaProduto = async (id) => {
       caixaDeErro('confirmarEnrada');
    }
    
-   const confirmacao = await confirmarMovimentação();
+   const confirmacao = await confirmarMovimentação('saida');
 
    if(confirmacao){
       saidaProdutoQuantidade(id, Number(valor.value));

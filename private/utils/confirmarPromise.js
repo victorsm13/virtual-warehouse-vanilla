@@ -1,5 +1,12 @@
-export function confirmarMovimentação(){
+export function confirmarMovimentação(mensagem){
    return new Promise((resolve)=>{
+
+    const jsMessage = document.querySelector('.jsMessage');
+
+    const message = mensagem ==='entrada' ? 'Tem certeza que deseja adicionar o produto?' : 'Tem certeza que deseja retirar o produto?';
+
+    jsMessage.innerText = message;
+
 
     const jsMessageBox = document.querySelector('.jsMessageBox');
     const jsConfirmarBtt = document.querySelector('.jsConfirmarBtt');
