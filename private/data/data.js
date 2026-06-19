@@ -404,13 +404,17 @@ export function entradaProdutoQuantidade(id, quantidade){
 }
 
 export function saidaProdutoQuantidade(id, quantidade){
-   let matchingProduct;
+  let matchingProduct;
 
   produtos.forEach((produto)=>{
     if(produto.id === id){
       matchingProduct = produto
     }
   });
+
+  if(quantidade < 0){
+    quantidade = Math.abs(quantidade);
+  }
 
   matchingProduct.quantidade -= quantidade;
 

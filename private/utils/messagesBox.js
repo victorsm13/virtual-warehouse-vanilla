@@ -55,6 +55,13 @@ export const caixaDeErro = (tipo)=>{
         jsMessageBox.classList.remove('hiden');
         jsMessageButtons.classList.remove('hiden');
         jsMessage.innerText = message;
+    } else if(tipo === 'quantidadeInválida'){
+        message = 'Quantidade inválida!'
+
+        jsCloseError.classList.add('hiden');
+        jsMessageBox.classList.remove('hiden');
+        jsMessageButtons.classList.remove('hiden');
+        jsMessage.innerText = message;
     }
 }
 

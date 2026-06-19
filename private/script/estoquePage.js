@@ -67,21 +67,38 @@ const  saidaProduto = async (id) => {
    if(resultado){
       caixaDeErro('confirmarEnrada');
    }
-   
-   const confirmacao = await confirmarMovimentação('saida');
 
-   if(confirmacao){
-      saidaProdutoQuantidade(id, Number(valor.value));
-      movimentacaoProduto(id, 'saida', valor.value);
-      valor.value = '';
-      if(jsSearchInput.value.trim() !== ''){
-         pesquisarProduto();
-      } else{
-         renderProducts();
+   let matchingProduct;
+
+    produtos.forEach((produto)=>{
+     if(produto.id === id){
+      matchingProduct = produto
       }
+    });
 
-      monstrarMensagemSucesso('saidaSucesso');
-   } 
+   if(Number(valor.value) < 0){
+      valor.value = Math.abs(Number(valor.value));
+   }
+
+   if(Number(valor.value) > matchingProduct.quantidade){
+      caixaDeErro('quantidadeInválida');
+      return;
+   }
+      
+      const confirmacao = await confirmarMovimentação('saida');
+
+      if(confirmacao){
+         saidaProdutoQuantidade(id, Number(valor.value));
+         movimentacaoProduto(id, 'saida', valor.value);
+         valor.value = '';
+         if(jsSearchInput.value.trim() !== ''){
+            pesquisarProduto();
+         } else{
+            renderProducts();
+         }
+
+         monstrarMensagemSucesso('saidaSucesso');
+      } 
 
 }
 
