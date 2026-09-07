@@ -2,7 +2,7 @@
 
 A web-based inventory management system built with HTML, CSS, and Vanilla JavaScript, designed for simple and intuitive product registration, tracking, and monitoring.
 
-You can acess the page here: https://victorsm13.github.io/virtual-warehouse-vanilla/homePage.html
+You can acess the live project here: https://victorsm13.github.io/virtual-warehouse-vanilla/homePage.html
 
 # 🛠️ Features
 
