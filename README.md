@@ -1,10 +1,10 @@
-# Warehouse Management System
+# 📖 Warehouse Management System
 
 A web-based inventory management system built with HTML, CSS, and Vanilla JavaScript, designed for simple and intuitive product registration, tracking, and monitoring.
 
 You can acess the page here: 
 
-# Features
+# 🛠️ Features
 
 Product Registration:
 
@@ -74,7 +74,7 @@ Data Persistence:
 
 All application data is stored in the browser using localStorage, ensuring data persists even after closing or refreshing the page.
 
-# Technologies Used
+# 🚀 Technologies Used
 
 * HTML5
 * CSS3
@@ -85,7 +85,7 @@ All application data is stored in the browser using localStorage, ensuring data 
 In addition to the technologies listed above, Artificial Intelligence was used as a productivity tool to assist in drafting this README and generating the initial mock product array. All core logic, features, and system functionalities were designed and implemented independently.
 
 
-# Project Goals
+# 🎯 Project Goals
 
 This project was built to practice core and intermediate Front-End development concepts, including:
 
@@ -100,7 +100,7 @@ This project was built to practice core and intermediate Front-End development c
 * Data Visualization
 * JavaScript Project Architecture
 
-# Core Capabilities Demonstrated
+# 🫀 Core Capabilities Demonstrated
 
 ✔ Product registration
 
@@ -122,6 +122,6 @@ This project was built to practice core and intermediate Front-End development c
 
 ✔ Product deletion
 
-# The Process
+# 📍 The Process
 
 I started this project at the beginning of the year and wrapped it up in late August, using it as a hands-on way to consolidate everything I learned during that period. Toward the end, I put it on hold for a bit because my focus had shifted to learning React and Node.js backend development. In fact, I built a replica of this app using that stack, adding a login system and MongoDB integration. Even so, I decided to publish this repository on GitHub as a personal milestone and a reminder that I can build a complete, functional project using pure Vanilla JavaScript.
