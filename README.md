@@ -1,121 +1,127 @@
-Sistema de Almoxarifado
+# Warehouse Management System
 
-Um sistema web para gerenciamento de estoque desenvolvido com HTML, CSS e JavaScript Vanilla, permitindo o cadastro, controle e monitoramento de produtos de forma simples e intuitiva.
+A web-based inventory management system built with HTML, CSS, and Vanilla JavaScript, designed for simple and intuitive product registration, tracking, and monitoring.
 
-Funcionalidades
+You can acess the page here: 
 
-Cadastro de Produtos:
+# Features
 
-* Adicionar novos produtos ao estoque
-* Definir categoria
-* Quantidade inicial
-* Estoque mínimo
-* Localização no almoxarifado
-* Fornecedor
-* Data de entrada
+Product Registration:
 
-Controle de Estoque:
+* Add new products to inventory
 
-* Visualização de todos os produtos cadastrados
-* Entrada de mercadorias
-* Saída de mercadorias
-* Atualização automática do estoque
-* Alerta visual para produtos com estoque abaixo do mínimo
+* Set product category
 
-Pesquisa e Filtros: 
+* Initial quantity
 
-* Busca de produtos por nome
-* Filtragem por categoria
-* Visualização rápida dos itens cadastrados
+* Minimum stock level threshold
 
-Página de Produto:
+* Warehouse storage location
 
-* Visualização detalhada do produto
-* Edição das informações
-* Exclusão de produtos
+* Supplier details
 
-Histórico de Movimentações:
+* Date received / entry date
 
-* Registro de todas as entradas e saídas
-* Data da movimentação
-* Quantidade movimentada
-* Paginação do histórico
+* Inventory Control:
 
-Dashboard de Gráficos:
+* Overview of all registered products
 
-* Relatórios de entradas e saídas
-* Filtro por período
-* Filtro por produto
-* Visualização gráfica utilizando Chart.js
+* Inbound stock management (stock-in)
 
-Persistência de Dados:
+* Outbound stock management (stock-out)
 
-Todos os dados são armazenados no navegador através do LocalStorage, permitindo que as informações permaneçam salvas mesmo após fechar a página.
+* Automatic stock level updates
 
-Tecnologias Utilizadas:
+* Visual alerts for items below minimum stock level
+
+Search & Filtering:
+
+* Product search by name
+
+* Category-based filtering
+
+* Quick overview of registered inventory items
+
+Product Details Page:
+
+* Detailed product view
+
+* Edit product information
+
+* Delete products
+
+Transaction History:
+
+* Log of all inbound and outbound movements
+
+* Transaction timestamp
+
+* Quantity moved
+
+* Paginated movement history
+
+Analytics Dashboard:
+
+* Inbound vs. outbound movement reports
+
+* Date range filtering
+
+* Product-specific filtering
+
+* Interactive charts powered by Chart.js
+
+Data Persistence:
+
+All application data is stored in the browser using localStorage, ensuring data persists even after closing or refreshing the page.
+
+# Technologies Used
 
 * HTML5
 * CSS3
 * JavaScript (ES6+)
-* LocalStorage
+* LocalStorage API
 * Chart.js
 
-Além das tecnologias listadas acima, utilizei Inteligência Artificial como ferramenta de apoio na elaboração deste README e na geração inicial do array de objetos produtos, com o objetivo de otimizar o tempo de desenvolvimento. Todas as outras funcionalidades do sistema foram desenvolvidas exclusivamente por mim sem apoio de IA.
+In addition to the technologies listed above, Artificial Intelligence was used as a productivity tool to assist in drafting this README and generating the initial mock product array. All core logic, features, and system functionalities were designed and implemented independently.
 
 
-Objetivos do Projeto
+# Project Goals
 
-Este projeto foi desenvolvido com o objetivo de praticar conceitos fundamentais e intermediários de desenvolvimento Front-End, como:
+This project was built to practice core and intermediate Front-End development concepts, including:
 
-Manipulação do DOM
-Modularização de código
-LocalStorage
-Eventos
-Arrays e Objetos
-Funções assíncronas
-Paginação
-Filtros e buscas
-Geração de gráficos
-Organização de projetos JavaScript
+* DOM Manipulation
+* Code Modularization
+* Web Storage API (localStorage)
+* Event Handling
+* Arrays & Objects Manipulation
+* Asynchronous Functions
+* Client-Side Pagination
+* Search & Filter Algorithms
+* Data Visualization
+* JavaScript Project Architecture
 
-Funcionalidades Demonstradas
+# Core Capabilities Demonstrated
 
-✔ Cadastro de produtos
+✔ Product registration
 
-✔ Controle de entradas e saídas
+✔ Stock-in and stock-out tracking
 
-✔ Histórico de movimentações
+✔ Transaction log history
 
-✔ Busca por produtos
+✔ Product search
 
-✔ Filtro por categorias
+✔ Category filtering
 
-✔ Alertas de estoque mínimo
+✔ Low-stock visual alerts
 
-✔ Gráficos de movimentação
+✔ Movement charts & reporting
 
-✔ Persistência de dados
+✔ Local data persistence
 
-✔ Edição de produtos
+✔ Product editing
 
-✔ Exclusão de produtos
+✔ Product deletion
 
-Melhorias Futuras:
+# The Process
 
-Sistema de login e autenticação
-Integração com banco de dados
-API REST com Node.js
-Dashboard com indicadores
-Exportação para Excel/PDF
-Controle de usuários e permissões
-Tema Dark Mode
-Responsividade aprimorada
-Deploy online
-
-Autor
-
-Desenvolvido por Victor Silva como projeto de estudos e prática de desenvolvimento Front-End.
-
-Contato
-GitHub: (adicione seu GitHub aqui)
-LinkedIn: (adicione seu LinkedIn aqui)
+I started this project at the beginning of the year and wrapped it up in late August, using it as a hands-on way to consolidate everything I learned during that period. Toward the end, I put it on hold for a bit because my focus had shifted to learning React and Node.js backend development. In fact, I built a replica of this app using that stack, adding a login system and MongoDB integration. Even so, I decided to publish this repository on GitHub as a personal milestone and a reminder that I can build a complete, functional project using pure Vanilla JavaScript.
