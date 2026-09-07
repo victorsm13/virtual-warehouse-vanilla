@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almoxarifado</title>
+    <title>Virtual Warehouse</title>
     <link rel="stylesheet" href="./styles/shared.css">
     <link rel="stylesheet" href="./styles/homePage.css">
 </head>
+
 <body>
 
     <div class="jsMessageBoxTwo messageBoxTwo hiden">
         <div class="jsMessageContainerTwo messageContainerTwo">
             <span class="jsMessageTwo messageTwo">
-                Produto adicionado com sucesso!
-            </span>
+                Product successfully added! </span>
         </div>
     </div>
 
     <div class="jsMessageBox messageBox hiden">
         <div class="messageContainer">
             <img class="jsCloseError" id="closeError" src="./assets/x.svg" alt="">
-            <span class="jsMessage message">Tem certeza que deseja adicionar o produto?</span>
+            <span class="jsMessage message">Are you sure you want to add the product?</span>
             <div class="jsMessageButtons messageButtons">
-                <button class="jsConfirmarBtt" id="simBtt">sim</button>
-                <button class="jsNegarBtt" id="naoBtt">não</button>
+                <button class="jsConfirmarBtt" id="simBtt">yes</button>
+                <button class="jsNegarBtt" id="naoBtt">no</button>
             </div>
         </div>
     </div>
 
     <header id="header">
 
-        <a class="title" href="./homePage.html"><h1>Almoxarifado</h1></a>
-       
+        <a class="title" href="./homePage.html">
+            <h1>Warehouse</h1>
+        </a>
+
 
         <input type="checkbox" id="check">
         <label for="check" class="icons">
@@ -40,66 +43,72 @@
         </label>
 
         <div class="header-links">
-            <a href="./estoquePage.html">estoque</a>
-            <a href="./historicoPage.html">histórico</a>
-            <a href="./graficoPage.html">Gráficos</a>
+            <a href="./estoquePage.html">Stock</a>
+            <a href="./historicoPage.html">History</a>
+            <a href="./graficoPage.html">Charts</a>
         </div>
     </header>
 
     <main id="mainHomePage">
 
-        <h2>cadastro de produtos</h2>
+        <h2>Product Registration</h2>
 
         <div class="input-container">
             <div class="input-box">
-                <label for="nomeProduto">Nome do produto:</label>
-                <input class="jsNomeProduto" type="text" name="nomeProduto" id="nomeProduto" placeholder="Nome do produto..." required>
+                <label for="nomeProduto">Product Name:</label>
+                <input class="jsNomeProduto" type="text" name="nomeProduto" id="nomeProduto"
+                    placeholder="Product Name..." required>
             </div>
-             <div class="input-box">
-                <label for="categoria">Categoria do produto:</label>
-                <select class="jsCategoria" name="cateforia" id="categoria">
-                    <option value="escritorio">Materias de escritório</option>
-                    <option value="TI">Equipamentos de TI</option>
-                    <option value="eletrico">Materias elétricos</option>
-                    <option value="Limpeza">Limpeza e manutenção</option>
-                    <option value="producao">Materias de produção</option>
-                    <option value="geral">Geral</option>
+            <div class="input-box">
+                <label for="categoria">Product Category:</label>
+                <select class="jsCategoria" name="categoria" id="categoria">
+                    <option value="escritorio">Office Supplies</option>
+                    <option value="TI">IT Equipment</option>
+                    <option value="eletrico">Electrical Materials</option>
+                    <option value="Limpeza">Cleaning and Maintenance</option>
+                    <option value="producao">Production Materials</option>
+                    <option value="geral">General</option>
                 </select>
             </div>
-             <div class="input-box">
-                <label for="quantidadeInicial">Quantidade inical:</label>
-                <input class="jsQuantidadeInicial" type="number" name="quantidadeInicial" id="quantidadeInicial" placeholder="Quantidade inicial...">
+            <div class="input-box">
+                <label for="quantidadeInicial">Initial Quantity:</label>
+                <input class="jsQuantidadeInicial" type="number" name="quantidadeInicial" id="quantidadeInicial"
+                    placeholder="Initial Quantity...">
             </div>
-             <div class="input-box">
-                <label for="quantidadeMinima">Quantidade mínima:</label>
-                <input class="jsQuantidadeMinima" type="number" name="quantidadeMinima" id="quantidadeMinima" placeholder="Quantidade minima...">
+            <div class="input-box">
+                <label for="quantidadeMinima">Minimum Quantity:</label>
+                <input class="jsQuantidadeMinima" type="number" name="quantidadeMinima" id="quantidadeMinima"
+                    placeholder="Minimum Quantity...">
             </div>
-             <div class="input-box">
-                <label for="localizacao">Localização:</label>
+            <div class="input-box">
+                <label for="localizacao">Location:</label>
                 <select class="jsLocalizacao" name="localizacao" id="localizacao">
-                    <option value="prateleiraUm">Prateleira 1</option>
-                    <option value="prateleiraDois">Prateleria 2</option>
-                    <option value="prateleiraTres">Prateleira 3</option>
-                    <option value="prateleiraQuatro">Prateleira 4</option>
-                    <option value="prateleiraCinco">Prateleira 5</option>
-                    <option value="prateleiraSeis">Prateleira 6</option>
+                    <option value="prateleiraUm">Shelf 1</option>
+                    <option value="prateleiraDois">Shelf 2</option>
+                    <option value="prateleiraTres">Shelf 3</option>
+                    <option value="prateleiraQuatro">Shelf 4</option>
+                    <option value="prateleiraCinco">Shelf 5</option>
+                    <option value="prateleiraSeis">Shelf 6</option>
                 </select>
             </div>
-             <div class="input-box">
-                <label for="fornecedor">Fornecedor:</label>
-                <input class="jsFornecedor" type="text" name="fornecedor" id="fornecedor" placeholder="Nome do fornecedor...">
+            <div class="input-box">
+                <label for="fornecedor">Supplier:</label>
+                <input class="jsFornecedor" type="text" name="fornecedor" id="fornecedor"
+                    placeholder="Supplier Name...">
             </div>
-             <div class="input-box">
-                <label for="dataEntrada">Data de entrada:</label>
-                <input class="jsDataEntrada" type="date" name="dataEntrada" id="dataEntrada" placeholder="Nome do produto...">
+            <div class="input-box">
+                <label for="dataEntrada">Entry Date:</label>
+                <input class="jsDataEntrada" type="date" name="dataEntrada" id="dataEntrada"
+                    placeholder="Entry Date...">
             </div>
             <div class="buttons-container">
-                <button class="jsAdicionarBtn" id="adicionar">Adicionar</button>
-                <button class="jsLimparBtn" id="limpar">Limpar</b>
+                <button class="jsAdicionarBtn" id="adicionar">Add</button>
+                <button class="jsLimparBtn" id="limpar">Clear</button>
             </div>
         </div>
     </main>
-    
+
     <script type="module" src="./script/homePage.js"></script>
 </body>
+
 </html>

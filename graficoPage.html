@@ -11,7 +11,7 @@
 
     <header id="header">
 
-        <a class="title" href="./homePage.html"><h1>Almoxarifado</h1></a>
+        <a class="title" href="./homePage.html"><h1>warehouse</h1></a>
        
         <input type="checkbox" id="check">
         <label for="check" class="icons">
@@ -20,44 +20,44 @@
         </label>
 
         <div class="header-links">
-            <a href="./estoquePage.html">estoque</a>
-            <a href="./historicoPage.html">histórico</a>
-            <a href="./graficoPage.html">Gráficos</a>
+            <a href="./estoquePage.html">Stock</a>
+            <a href="./historicoPage.html">History</a>
+            <a href="./graficoPage.html">Charts</a>
         </div>
     </header>
 
     <main id="mainGraficoPage">
-        <h2>Gráfico</h2>
+        <h2>Charts</h2>
 
         <div class="filtroBox">
             <div class="dataBox">
                 <div class="dataContainer">
-                    <span>Data inicial:</span>
+                    <span>Start date:</span>
                     <input class="jsDataInicial dataInicial" type="date">
                 </div>
                 <div class="dataContainer">
-                    <span>Data final:</span>
+                    <span>End date:</span>
                     <input class="jsDataFinal dataFinal" type="date">
                 </div>
             </div>
             <div class="produtoBox">
-                <label for="produto">Produto:</label>
+                <label for="produto">Product:</label>
                 <select class="jsProduto" name="produto" id="produto">
 
                 </select>
             </div>
             <div class="tipoMovimentação">
-                <label for="tipoMovimentacao">Tipo de Movimentação:</label>
+                <label for="tipoMovimentacao">Type of Movement:</label>
                 <select class="jsTipoMovimentacao" name="tipoMovimentacao" id="tipoMovimentacao">
-                    <option value="Entrada">Entrada</option>
-                    <option value="Saída">Saída</option>
+                    <option value="Entrada">Entry</option>
+                    <option value="Saída">Exit</option>
                 </select>
             </div>
 
         </div>
 
         <div class="buttonsBox">
-            <button class='jsButtonGrafico' id="gerarGráfico">Gerar Gráfico</button>
+            <button class='jsButtonGrafico' id="gerarGráfico">Generate Chart</button>
         </div>
 
         <div class="graficoBox">

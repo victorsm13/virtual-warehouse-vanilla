@@ -54,7 +54,7 @@ const caixaDeDialogo = async ()=>{
 
     caixaDeErro('confirmacaoCadastro');
 
-    const confirmacao = await confirmarMovimentação();
+    const confirmacao = await confirmarMovimentação('entrada');
 
     if(confirmacao){
 

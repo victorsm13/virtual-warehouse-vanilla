@@ -1,5 +1,4 @@
 export let produtos = JSON.parse(localStorage.getItem("produtos")) || [
-  // 📎 Materiais de escritório
 {
   id: "A7K9X2M4P8Q1L5N3R6T0V2Y8B4C1D7E9",
   nome: "Papel A4",
@@ -369,8 +368,8 @@ export function adicionarItem(nome, categoria, quantidade, estoqueM, localizacao
     id: crypto.randomUUID(),
     nome: nome,
     categoria: categoria,
-    quantidade: quantidade,
-    estoqueMinimo: estoqueM,
+    quantidade: Number(quantidade),
+    estoqueMinimo: Number(estoqueM),
     localizacao: localizacao,
     fornecedor: fornecedor,
     dataEntrada: data

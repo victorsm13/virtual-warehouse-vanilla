@@ -3,7 +3,7 @@ export function confirmarMovimentação(mensagem){
 
     const jsMessage = document.querySelector('.jsMessage');
 
-    const message = mensagem ==='entrada' ? 'Tem certeza que deseja adicionar o produto?' : 'Tem certeza que deseja retirar o produto?';
+    const message = mensagem === 'entrada' ? 'Are you sure you want to add the product?' : 'Are you sure you want to remove the product?';
 
     jsMessage.innerText = message;
 

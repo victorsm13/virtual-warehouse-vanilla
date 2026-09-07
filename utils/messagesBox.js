@@ -12,14 +12,14 @@ export const caixaDeErro = (tipo)=>{
     let message;
 
     if(tipo === 'campoVazioCadastro'){
-        message = 'Todos os campos precisam ser preenchidos';
+        message = 'All fields must be filled in';
 
         jsMessageButtons.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
         jsCloseError.classList.remove('hiden');
         jsMessage.innerText = message;
     } else if(tipo === 'quantidadeInválida') {
-        message = 'Digite um valor válido!';
+        message = 'Please enter a valid quantity!';
 
         jsMessageButtons.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
@@ -27,21 +27,21 @@ export const caixaDeErro = (tipo)=>{
         jsMessage.innerText = message;
     }
      else if (tipo === 'confirmacaoCadastro'){
-        message = 'Tem certeza que deseja adicionar o produto?'
+        message = 'Are you sure you want to add the product?'
 
         jsCloseError.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
         jsMessageButtons.classList.remove('hiden');
         jsMessage.innerText = message;
     } else if(tipo === 'confirmarEnrada'){
-        message = 'Tem certeza que deseja dar entrada no produto?'
+        message = 'Are you sure you want to give entry to the product?'
 
         jsCloseError.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
         jsMessageButtons.classList.remove('hiden');
         jsMessage.innerText = message;
     } else if(tipo === 'confirmarSaida'){
-        message = 'Tem certeza que deseja dar saída no produto?'
+        message = 'Are you sure you want to give exit to the product?'
 
         jsCloseError.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
@@ -49,14 +49,14 @@ export const caixaDeErro = (tipo)=>{
         jsMessage.innerText = message;
         
     } else if (tipo === 'exclusaoProduto') {
-        message = 'Tem certeza que deseja excluir o produto?'
+        message = 'Are you sure you want to delete the product?'
 
         jsCloseError.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
         jsMessageButtons.classList.remove('hiden');
         jsMessage.innerText = message;
     } else if(tipo === 'quantidadeInválida'){
-        message = 'Quantidade inválida!'
+        message = 'Please enter a valid quantity!'
 
         jsCloseError.classList.add('hiden');
         jsMessageBox.classList.remove('hiden');
@@ -72,16 +72,16 @@ export function monstrarMensagemSucesso(mensagem){
     let message;
 
     if(mensagem === 'cadastroSucesso'){
-        message = 'Produto adicionado com sucesso!';
+        message = 'Product added successfully!';
         jsMessageTwo.innerText = message;
     } else if(mensagem === 'entradaSucesso'){
-        message = 'Entrada realizada com sucesso!';;
+        message = 'Entry completed successfully!';;
         jsMessageTwo.innerText = message;
     } else if (mensagem === 'saidaSucesso' ){
-        message = 'Saída realizada com sucesso!';
+        message = 'Exit completed successfully!';
         jsMessageTwo.innerText = message;
     } else if (mensagem === 'editadoSucesso'){
-        message = 'Produto editado com sucesso!';
+        message = 'Product edited successfully!';
         jsMessageTwo.innerText = message;
     }
 
